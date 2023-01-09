@@ -2,18 +2,19 @@ import 'package:cafeterianhs/controllers/main_controller.dart';
 import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
-class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWidget {
-  
+class AppbarWidget extends BaseWidget<MainController>
+    implements PreferredSizeWidget {
   const AppbarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return PreferredSize (
+    return PreferredSize(
       preferredSize: preferredSize,
       child: DefaultTabController(
-        length: 4,
+        length: 5,
         child: AppBar(
-          backgroundColor: Colors.transparent, // backgroundColor: Color.fromARGB(255, 255, 200, 118),
+          backgroundColor: Colors
+              .transparent, // backgroundColor: Color.fromARGB(255, 255, 200, 118),
           title: const Text('CAFTERI-ANHS'),
           centerTitle: true,
           leading: IconButton(
@@ -23,21 +24,28 @@ class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWi
           actions: const [
             Icon(Icons.shopping_bag_rounded),
           ],
-          flexibleSpace: Container (
+          flexibleSpace: Container(
             decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only (
-              bottomLeft: Radius.circular(24),
-              bottomRight: Radius.circular(24),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(24),
+                bottomRight: Radius.circular(24),
               ),
-              gradient: LinearGradient (
+              gradient: LinearGradient(
                 colors: [Colors.purple, Colors.red],
                 begin: Alignment.bottomRight,
                 end: Alignment.topLeft,
-              )
+              ),
             ),
           ),
-          bottom: const TabBar(
-            tabs: [
+          bottom: TabBar(
+            onTap: (index) {
+              controller.setIndex(5);
+            },
+            tabs: const [
+              Tab(
+                icon: Icon(Icons.menu),
+                text: ('All'),
+              ),
               Tab(
                 icon: Icon(Icons.wine_bar),
                 text: ('Drinks'),
@@ -54,11 +62,11 @@ class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWi
                 icon: Icon(Icons.icecream_rounded),
                 text: ('Dessert'),
               )
-            ]
+            ],
           ),
           elevation: 0,
           titleSpacing: 4,
-         ),
+        ),
       ),
     );
   }
