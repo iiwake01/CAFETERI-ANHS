@@ -2,8 +2,7 @@ import 'package:cafeterianhs/controllers/main_controller.dart';
 import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
-class AppbarWidget extends BaseWidget<MainController>
-    implements PreferredSizeWidget {
+class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWidget {
   const AppbarWidget({super.key});
 
   @override
@@ -38,10 +37,9 @@ class AppbarWidget extends BaseWidget<MainController>
             ),
           ),
           bottom: TabBar(
-            onTap: (index) {
-              controller.setIndex(5);
-            },
-            tabs: const [
+            controller: controller.getTabController(),
+            //onTap: (index) { controller.showTabBarView(); },
+            tabs: const <Widget>[
               Tab(
                 icon: Icon(Icons.menu),
                 text: ('All'),

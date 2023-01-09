@@ -15,6 +15,7 @@ class BottomNavigationBarWidget extends BaseWidget<MainController> {
         duration: const Duration(milliseconds: 1000),
         onTap: (index) {
           controller.setIndex(index);
+          controller.hideTabBarView();
         },
         items: [
           /// Home
