@@ -6,14 +6,6 @@ class ShopWidget extends BaseWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-        colors: [
-          Colors.blue,
-          Colors.pink,
-        ],
-      )),
-    );
+    return Container();
   }
 }

@@ -19,6 +19,13 @@ class BottomNavigationBarWidget extends BaseWidget<MainController> {
         items: [
           /// Home
           SalomonBottomBarItem(
+            icon: Icon(Icons.home),
+            title: Text("Home"),
+            selectedColor: Colors.purple,
+          ),
+
+          /// Shop
+          SalomonBottomBarItem(
             icon: Icon(Icons.shopping_cart),
             title: Text("Shop"),
             selectedColor: Colors.purple,
