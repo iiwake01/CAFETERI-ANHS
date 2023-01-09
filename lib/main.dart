@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 void main() {
   runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: true,
+    debugShowCheckedModeBanner: false,
     initialBinding: SplashBinding(),
     initialRoute: Routes.SPLASH,
     theme: ThemeData(
