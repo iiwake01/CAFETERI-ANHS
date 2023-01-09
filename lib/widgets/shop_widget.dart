@@ -2,14 +2,18 @@ import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
 class ShopWidget extends BaseWidget {
-  
   const ShopWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container (
-      child: Center(child:Text("Shop")),
-      color: Colors.purple,
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          Colors.blue,
+          Colors.pink,
+        ],
+      )),
     );
   }
 }
