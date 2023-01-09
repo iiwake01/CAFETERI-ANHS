@@ -1,38 +1,43 @@
+import 'package:cafeterianhs/controllers/main_controller.dart';
+import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
-class AppbarWidget extends StatelessWidget {
+class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWidget {
+  
   const AppbarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return PreferredSize (
+      preferredSize: preferredSize,
+      child: DefaultTabController(
         length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            title: Text('CAFTERI-ANHS'),
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
+        child: AppBar(
+          backgroundColor: Colors.transparent, // backgroundColor: Color.fromARGB(255, 255, 200, 118),
+          title: const Text('CAFTERI-ANHS'),
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+          actions: const [
+            Icon(Icons.shopping_bag_rounded),
+          ],
+          flexibleSpace: Container (
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only (
+              bottomLeft: Radius.circular(24),
+              bottomRight: Radius.circular(24),
+              ),
+              gradient: LinearGradient (
+                colors: [Colors.purple, Colors.red],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+              )
             ),
-            actions: [
-              Icon(Icons.shopping_bag_rounded),
-            ],
-            // backgroundColor: Color.fromARGB(255, 255, 200, 118),
-            flexibleSpace: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(24),
-                    bottomRight: Radius.circular(24),
-                  ),
-                  gradient: LinearGradient(
-                    colors: [Colors.purple, Colors.red],
-                    begin: Alignment.bottomRight,
-                    end: Alignment.topLeft,
-                  )),
-            ),
-            bottom: TabBar(tabs: [
+          ),
+          bottom: const TabBar(
+            tabs: [
               Tab(
                 icon: Icon(Icons.wine_bar),
                 text: ('Drinks'),
@@ -49,10 +54,17 @@ class AppbarWidget extends StatelessWidget {
                 icon: Icon(Icons.icecream_rounded),
                 text: ('Dessert'),
               )
-            ]),
-            elevation: 0,
-            titleSpacing: 4,
+            ]
           ),
-        ));
+          elevation: 0,
+          titleSpacing: 4,
+         ),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize {
+    return const Size.fromHeight(120);
   }
 }
