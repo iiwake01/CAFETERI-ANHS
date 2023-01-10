@@ -12,8 +12,6 @@ class MainPage extends BaseView<MainController> {
   @override
   Widget build(BuildContext context) {
     debugPrint("MainPage build");
-    debugPrint("MainPage initialized ${controller.initialized}");
-    debugPrint("MainPage isClosed ${controller.isClosed}");
     return const Scaffold(
       appBar: AppbarWidget(),
       body: MainWidget(),

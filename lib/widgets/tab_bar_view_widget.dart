@@ -3,6 +3,7 @@ import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
 class TabBarViewWidget extends BaseWidget<MainController> {
+  
   const TabBarViewWidget({Key? key}) : super(key: key);
 
   @override
