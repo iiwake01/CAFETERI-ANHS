@@ -32,11 +32,6 @@ class BottomNavigationBarWidget extends BaseWidget<MainController> {
             selectedColor: Colors.purple,
           ),
 
-          SalomonBottomBarItem(
-              icon: Icon(Icons.notifications_on),
-              title: Text("Notification"),
-              selectedColor: Colors.blue),
-
           /// Likes
           SalomonBottomBarItem(
             icon: Icon(Icons.favorite_border),

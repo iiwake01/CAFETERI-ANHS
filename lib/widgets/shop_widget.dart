@@ -6,6 +6,10 @@ class ShopWidget extends BaseWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Container(
+        child: Text('Shop : under construction'),
+      ),
+    );
   }
 }

@@ -16,19 +16,12 @@ class SplashWidget extends BaseWidget<SplashController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/flutter.webp',
+                'assets/cafeterianhs.webp',
                 fit: BoxFit.cover,
-                height: 100,
-                width: 100,
+                height: 300,
+                width: 300,
                 alignment: Alignment.center,
               ),
-              const Text(
-                'Flutter App',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.indigo),
-              )
             ],
           ),
         ),
