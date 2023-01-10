@@ -9,11 +9,8 @@ class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWi
   Widget build(BuildContext context) {
     return PreferredSize(
       preferredSize: preferredSize,
-      child: DefaultTabController(
-        length: 5,
-        child: AppBar(
-          backgroundColor: Colors
-              .transparent, // backgroundColor: Color.fromARGB(255, 255, 200, 118),
+      child: AppBar(
+          backgroundColor: Colors.transparent, // backgroundColor: Color.fromARGB(255, 255, 200, 118),
           title: const Text('CAFTERI-ANHS'),
           centerTitle: true,
           leading: IconButton(
@@ -39,6 +36,7 @@ class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWi
           bottom: TabBar(
             controller: controller.getTabController(),
             //onTap: (index) { controller.showTabBarView(); },
+            isScrollable: false,
             tabs: const <Widget>[
               Tab(
                 icon: Icon(Icons.menu),
@@ -65,7 +63,6 @@ class AppbarWidget extends BaseWidget<MainController> implements PreferredSizeWi
           elevation: 0,
           titleSpacing: 4,
         ),
-      ),
     );
   }
 
