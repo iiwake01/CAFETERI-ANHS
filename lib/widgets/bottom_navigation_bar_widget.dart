@@ -11,35 +11,29 @@ class BottomNavigationBarWidget extends BaseWidget<MainController> {
   Widget build(BuildContext context) {
     return Obx(() {
       return SalomonBottomBar(
-        currentIndex: controller.getIndex(),
+        currentIndex: controller.getBottomIndex(),
         duration: const Duration(milliseconds: 1000),
         onTap: (index) {
-          controller.setIndex(index);
-          controller.hideTabBarView();
+          controller.setAppBarEnum(index);
+          controller.setTabIndex(index);
+          controller.setBottomIndex(index);
         },
-        items: [
-          /// Home
+        items: <SalomonBottomBarItem> [
           SalomonBottomBarItem(
             icon: Icon(Icons.home),
             title: Text("Home"),
             selectedColor: Colors.purple,
           ),
-
-          /// Shop
           SalomonBottomBarItem(
             icon: Icon(Icons.shopping_cart),
             title: Text("Shop"),
             selectedColor: Colors.purple,
           ),
-
-          /// Likes
           SalomonBottomBarItem(
             icon: Icon(Icons.favorite_border),
             title: Text("Likes"),
             selectedColor: Colors.pink,
           ),
-
-          /// Profile
           SalomonBottomBarItem(
             icon: Icon(Icons.person),
             title: Text("Profile"),

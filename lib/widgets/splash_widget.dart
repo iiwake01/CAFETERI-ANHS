@@ -1,8 +1,7 @@
-import 'package:cafeterianhs/controllers/splash_controller.dart';
 import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
-class SplashWidget extends BaseWidget<SplashController> {
+class SplashWidget extends BaseWidget {
   const SplashWidget({Key? key}) : super(key: key);
 
   @override
