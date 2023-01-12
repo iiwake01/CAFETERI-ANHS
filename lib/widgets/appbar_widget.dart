@@ -20,8 +20,7 @@ class AppbarWidget extends BaseWidget<MainController> with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Obx(
       () {
-        if (controller.getAppBarEnum() == AppBarEnum.home ||
-            controller.getAppBarEnum() == AppBarEnum.profile)
+        if (controller.getAppBarEnum() == AppBarEnum.profile)
           return PreferredSize(
               preferredSize: preferredSize, child: HomeAppBarWidget());
         else if (controller.getAppBarEnum() == AppBarEnum.shop)
