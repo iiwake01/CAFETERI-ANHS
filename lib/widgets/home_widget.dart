@@ -36,11 +36,14 @@ class HomeWidget extends BaseWidget {
         ),
 
         SliverToBoxAdapter(
-          child: const Text(
-            'Popular buys:',
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
+          child: Container(
+            margin: EdgeInsets.only(left: 10),
+            child: const Text(
+              'Popular buys.',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -56,13 +59,49 @@ class HomeWidget extends BaseWidget {
         SliverGrid.count(
           crossAxisCount: 2,
           mainAxisSpacing: 20,
-          crossAxisSpacing: 20,
+          crossAxisSpacing: 10,
           childAspectRatio: 1,
           children: [
-            Container(color: Colors.orange),
-            Container(color: Colors.blue),
-            Container(color: Colors.red),
-            Container(color: Colors.green),
+            Container(
+              child: Center(
+                child: Text('Food 1'),
+              ),
+              margin: EdgeInsets.only(left: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.orange,
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('Food 2'),
+              ),
+              margin: EdgeInsets.only(right: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.blue,
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('Food 3'),
+              ),
+              margin: EdgeInsets.only(left: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.red,
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('Food 4'),
+              ),
+              margin: EdgeInsets.only(right: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.green,
+              ),
+            ),
           ],
         )
       ],

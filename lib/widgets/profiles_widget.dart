@@ -29,13 +29,26 @@ class ProfileWidget extends BaseWidget {
           )),
         ),
         SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.all(10),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                height: 50,
-                color: Colors.deepPurple,
+          child: Container(
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      'Settings',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.deepPurple[300],
+                  ),
+                ),
               ),
             ),
           ),
@@ -47,7 +60,7 @@ class ProfileWidget extends BaseWidget {
               borderRadius: BorderRadius.circular(20),
               child: Container(
                 height: 50,
-                color: Colors.deepPurple,
+                color: Colors.deepPurple[300],
               ),
             ),
           ),
@@ -59,7 +72,7 @@ class ProfileWidget extends BaseWidget {
               borderRadius: BorderRadius.circular(20),
               child: Container(
                 height: 50,
-                color: Colors.deepPurple,
+                color: Colors.deepPurple[300],
               ),
             ),
           ),
@@ -71,7 +84,7 @@ class ProfileWidget extends BaseWidget {
               borderRadius: BorderRadius.circular(20),
               child: Container(
                 height: 50,
-                color: Colors.deepPurple,
+                color: Colors.deepPurple[300],
               ),
             ),
           ),
@@ -82,8 +95,19 @@ class ProfileWidget extends BaseWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Container(
+                child: Center(
+                  child: Text(
+                    'Log-out',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
                 height: 50,
-                color: Colors.deepPurple,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.deepPurple[300],
+                ),
               ),
             ),
           ),
