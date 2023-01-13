@@ -6,10 +6,27 @@ class LikesWidget extends BaseWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Likes : under construction"),
-      ),
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          leading: Icon(Icons.arrow_back_ios),
+          flexibleSpace: FlexibleSpaceBar(
+            centerTitle: true,
+            title: Text('Likes'),
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate((context, index) {
+            return Container(
+              margin: EdgeInsets.all(5),
+              height: 50,
+              alignment: Alignment.center,
+              color: Colors.orange,
+              child: Text('Likes $index'),
+            );
+          }, childCount: 5),
+        )
+      ],
     );
   }
 }

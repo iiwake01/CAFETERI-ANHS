@@ -7,61 +7,88 @@ class ProfileWidget extends BaseWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 5,
-      child: CustomScrollView(
-        slivers: [
-          SliverAppBarWidget(),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  height: 70,
-                  color: Colors.deepPurple,
-                ),
+    return CustomScrollView(
+      slivers: [
+        SliverAppBarWidget(),
+        SliverToBoxAdapter(
+          child: Center(
+            child: Text(
+              'Profiles',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  height: 70,
-                  color: Colors.deepPurple,
-                ),
+        ),
+        SliverToBoxAdapter(
+          child: ClipRRect(
+              child: Container(
+            height: 10,
+            color: Colors.white,
+          )),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                height: 50,
+                color: Colors.deepPurple,
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  height: 70,
-                  color: Colors.deepPurple,
-                ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                height: 50,
+                color: Colors.deepPurple,
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  height: 70,
-                  color: Colors.deepPurple,
-                ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                height: 50,
+                color: Colors.deepPurple,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                height: 50,
+                color: Colors.deepPurple,
+              ),
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                height: 50,
+                color: Colors.deepPurple,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
