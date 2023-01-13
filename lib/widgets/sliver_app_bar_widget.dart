@@ -8,7 +8,7 @@ class SliverAppBarWidget extends BaseWidget {
       elevation: 4,
       pinned: false,
       backgroundColor: Colors.deepPurple,
-      expandedHeight: 220,
+      expandedHeight: 280,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         background: Image.asset(

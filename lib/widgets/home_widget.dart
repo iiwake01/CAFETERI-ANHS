@@ -11,22 +11,6 @@ class HomeWidget extends BaseWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBarWidget(),
-
-        // SliverList(
-        //   delegate: SliverChildBuilderDelegate(
-        //     (context, index) {
-        //       return Container(
-        //         margin: EdgeInsets.all(10),
-        //         height: 50,
-        //         alignment: Alignment.center,
-        //         color: Colors.deepPurple[100],
-        //         child: Text('number $index'),
-        //       );
-        //     },
-        //     childCount: 20,
-        //   ),
-        // ),
-
         SliverToBoxAdapter(
           child: ClipRRect(
               child: Container(
@@ -34,12 +18,11 @@ class HomeWidget extends BaseWidget {
             color: Colors.white,
           )),
         ),
-
         SliverToBoxAdapter(
           child: Container(
-            margin: EdgeInsets.only(left: 10),
+            margin: EdgeInsets.only(left: 20),
             child: const Text(
-              'Popular buys.',
+              'Popular items.',
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
@@ -47,7 +30,6 @@ class HomeWidget extends BaseWidget {
             ),
           ),
         ),
-
         SliverToBoxAdapter(
           child: ClipRRect(
               child: Container(
@@ -55,7 +37,6 @@ class HomeWidget extends BaseWidget {
             color: Colors.white,
           )),
         ),
-
         SliverGrid.count(
           crossAxisCount: 2,
           mainAxisSpacing: 20,
@@ -68,9 +49,10 @@ class HomeWidget extends BaseWidget {
               ),
               margin: EdgeInsets.only(left: 5),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.orange,
-              ),
+                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                      image: AssetImage('assets/cafeteria.jpg'))),
             ),
             Container(
               child: Center(

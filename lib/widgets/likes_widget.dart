@@ -14,6 +14,8 @@ class LikesWidget extends BaseWidget {
             onPressed: () {},
             icon: Icon(Icons.arrow_back_ios),
           ),
+          expandedHeight: 100,
+          backgroundColor: Colors.deepPurple[300],
           flexibleSpace: FlexibleSpaceBar(
             centerTitle: true,
             title: Text('Likes'),
@@ -22,7 +24,7 @@ class LikesWidget extends BaseWidget {
         SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
             return Container(
-              margin: EdgeInsets.all(5),
+              margin: EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15),
               height: 50,
               alignment: Alignment.center,
               child: Text('Likes $index'),

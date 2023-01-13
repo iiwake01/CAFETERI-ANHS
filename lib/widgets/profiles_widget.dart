@@ -10,7 +10,7 @@ class ProfileWidget extends BaseWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBarWidget(),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: Center(
             child: Text(
               'Profiles',
@@ -31,9 +31,9 @@ class ProfileWidget extends BaseWidget {
         SliverToBoxAdapter(
           child: Container(
             child: Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 35, right: 35, top: 10),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(30),
                 child: Container(
                   child: Center(
                     child: Text(
@@ -45,7 +45,7 @@ class ProfileWidget extends BaseWidget {
                   ),
                   height: 50,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(30),
                     color: Colors.deepPurple[300],
                   ),
                 ),
@@ -55,45 +55,78 @@ class ProfileWidget extends BaseWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 35, right: 35, top: 10),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(30),
               child: Container(
+                child: Center(
+                  child: Text(
+                    'Notifications',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
                 height: 50,
-                color: Colors.deepPurple[300],
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.deepPurple[300],
+                ),
               ),
             ),
           ),
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 35, right: 35, top: 10),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(30),
               child: Container(
+                child: Center(
+                  child: Text(
+                    'Privacy & Security',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
                 height: 50,
-                color: Colors.deepPurple[300],
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.deepPurple[300],
+                ),
               ),
             ),
           ),
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 35, right: 35, top: 10),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(30),
               child: Container(
+                child: Center(
+                  child: Text(
+                    'Help and Support',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
                 height: 50,
-                color: Colors.deepPurple[300],
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.deepPurple[300],
+                ),
               ),
             ),
           ),
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 35, right: 35, top: 10),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(30),
               child: Container(
                 child: Center(
                   child: Text(
@@ -105,7 +138,7 @@ class ProfileWidget extends BaseWidget {
                 ),
                 height: 50,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(30),
                   color: Colors.deepPurple[300],
                 ),
               ),
