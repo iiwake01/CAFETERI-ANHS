@@ -1,5 +1,7 @@
 import 'package:cafeterianhs/controllers/main_controller.dart';
+import 'package:cafeterianhs/utils/shop_category_enum.dart';
 import 'package:cafeterianhs/widgets/base_widgets.dart';
+import 'package:cafeterianhs/widgets/card_view_widget.dart';
 import 'package:flutter/material.dart';
 
 class TabBarViewWidget extends BaseWidget<MainController> {
@@ -12,20 +14,14 @@ class TabBarViewWidget extends BaseWidget<MainController> {
       children: [
         Center(
           child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount (
                 crossAxisSpacing: 12,
                 crossAxisCount: 2,
                 mainAxisSpacing: 12,
                 mainAxisExtent: 250),
-            itemCount: 8,
+            itemCount: controller.getShopLength(ShopCategoryEnum.all),
             itemBuilder: (_, index) {
-              return Container(
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent,
-                ),
-              );
+              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.all), name: controller.getShopName(index, ShopCategoryEnum.all),);
             },
           ),
         ),
@@ -36,31 +32,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
                 crossAxisCount: 2,
                 mainAxisSpacing: 12,
                 mainAxisExtent: 250),
-            itemCount: 2,
+            itemCount: controller.getShopLength(ShopCategoryEnum.drink),
             itemBuilder: (_, index) {
-              return Container(
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent,
-                ),
-                child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                      ),
-                      child: Image.network(
-                        'https://cdn.shopify.com/s/files/1/0280/7126/4308/products/cokecan_1079x.png?v=1586878773',
-                        height: 180,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                      ),
-                    )
-                  ],
-                ),
-              );
+              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.drink), name: controller.getShopName(index, ShopCategoryEnum.drink),);
             },
           ),
         ),
@@ -71,31 +45,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
                 crossAxisCount: 2,
                 mainAxisSpacing: 12,
                 mainAxisExtent: 250),
-            itemCount: 2,
+            itemCount: controller.getShopLength(ShopCategoryEnum.meal),
             itemBuilder: (_, index) {
-              return Container(
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent,
-                ),
-                child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                      ),
-                      child: Image.network(
-                        'https://storage.googleapis.com/aigensstoretest.appspot.com/SHXFfvGnCYtPEQpuZNWGBg.jpg',
-                        height: 180,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                      ),
-                    )
-                  ],
-                ),
-              );
+              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.meal), name: controller.getShopName(index, ShopCategoryEnum.meal),);
             },
           ),
         ),
@@ -106,31 +58,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
                 crossAxisCount: 2,
                 mainAxisSpacing: 12,
                 mainAxisExtent: 250),
-            itemCount: 2,
+            itemCount: controller.getShopLength(ShopCategoryEnum.junk),
             itemBuilder: (_, index) {
-              return Container(
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent,
-                ),
-                child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                      ),
-                      child: Image.network(
-                        'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684711722806/ddb89c9c74208ec13bd1918c40da1730_large.png&width=512&type=webp&quality=90',
-                        height: 180,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                      ),
-                    )
-                  ],
-                ),
-              );
+              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.junk), name: controller.getShopName(index, ShopCategoryEnum.junk),);
             },
           ),
         ),
@@ -141,31 +71,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
                 crossAxisCount: 2,
                 mainAxisSpacing: 12,
                 mainAxisExtent: 250),
-            itemCount: 2,
+            itemCount: controller.getShopLength(ShopCategoryEnum.dessert),
             itemBuilder: (_, index) {
-              return Container(
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent,
-                ),
-                child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                      ),
-                      child: Image.network(
-                        'https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg',
-                        height: 180,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                      ),
-                    )
-                  ],
-                ),
-              );
+              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.dessert), name: controller.getShopName(index, ShopCategoryEnum.dessert),);
             },
           ),
         ),

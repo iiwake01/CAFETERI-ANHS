@@ -1,4 +1,7 @@
+import 'package:cafeterianhs/models/shop_model.dart';
 import 'package:cafeterianhs/utils/app_bar_enum.dart';
+import 'package:cafeterianhs/utils/shop_category_enum.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'base_controller.dart';
@@ -13,11 +16,13 @@ class MainController extends BaseController with GetSingleTickerProviderStateMix
   final RxInt _currentBottomIndex = 0.obs;
   final RxDouble _preferredSize = 120.00.obs;
   late TabController _tabController;
+  final RxList<ShopModel> _shopList = new List<ShopModel>.empty().obs;
 
   @override
   void onInit() {
     debugPrint("MainController onInit");
     super.onInit();
+    _setShopList();
     _tabController = TabController(length: 5, vsync: this);
     _tabController.addListener(() {
       debugPrint("TabController ${_tabController.index}");
@@ -62,6 +67,26 @@ class MainController extends BaseController with GetSingleTickerProviderStateMix
   int getBottomIndex() {
     debugPrint("MainController getBottomIndex(${_currentBottomIndex.value})");
     return _currentBottomIndex.value;
+  }
+
+  void _setShopList() {
+    _shopList.value = <ShopModel>[];
+    _shopList.add( ShopModel( id: null, image: 'https://cdn.shopify.com/s/files/1/0280/7126/4308/products/cokecan_1079x.png?v=1586878773', name: null, ) );
+    _shopList.add( ShopModel( id: null, image: 'https://storage.googleapis.com/aigensstoretest.appspot.com/SHXFfvGnCYtPEQpuZNWGBg.jpg', name: null, ) );
+    _shopList.add( ShopModel( id: null, image: 'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684711722806/ddb89c9c74208ec13bd1918c40da1730_large.png&width=512&type=webp&quality=90', name: null, ) );
+    _shopList.add( ShopModel( id: null, image: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg', name: null, ) );
+  }
+
+  String getShopImage(int index, ShopCategoryEnum category) {
+    return _shopList.value[index].image ?? "Nil";
+  }
+
+  String getShopName(int index, ShopCategoryEnum category) {
+    return _shopList.value[index].name ?? "Nil";
+  }
+
+  int getShopLength(ShopCategoryEnum category) {
+    return _shopList.value.length ?? 0;
   }
 
   @override
