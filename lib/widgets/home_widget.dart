@@ -8,85 +8,81 @@ class HomeWidget extends BaseWidget {
   const HomeWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverAppBarWidget(),
-        SliverToBoxAdapter(
-          child: ClipRRect(
-              child: Container(
-            height: 10,
-            color: Colors.white,
-          )),
-        ),
-        SliverToBoxAdapter(
-          child: Container(
-            margin: EdgeInsets.only(left: 20),
-            child: const Text(
-              'Popular items.',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
+    return Container(
+      color: Colors.white,
+      child: CustomScrollView(
+        slivers: [
+          SliverAppBarWidget(),
+          SliverToBoxAdapter(
+            child: ClipRRect(
+                child: Container(
+              height: 10,
+              color: Colors.white,
+            )),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              margin: EdgeInsets.only(left: 20, top: 20),
+              child: const Text(
+                'Popular items.\n',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: ClipRRect(
-              child: Container(
-            height: 10,
-            color: Colors.white,
-          )),
-        ),
-        SliverGrid.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 20,
-          crossAxisSpacing: 10,
-          childAspectRatio: 1,
-          children: [
-            Container(
-              child: Center(
-                child: Text('Food 1'),
+          SliverGrid.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 10,
+            childAspectRatio: 1,
+            children: [
+              Container(
+                child: Center(
+                  child: Text('Food 1'),
+                ),
+                margin: EdgeInsets.only(left: 5),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                        image: AssetImage('assets/cafeteria.jpg'))),
               ),
-              margin: EdgeInsets.only(left: 5),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black),
+              Container(
+                child: Center(
+                  child: Text('Food 2'),
+                ),
+                margin: EdgeInsets.only(right: 5),
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                      image: AssetImage('assets/cafeteria.jpg'))),
-            ),
-            Container(
-              child: Center(
-                child: Text('Food 2'),
+                  color: Colors.blue,
+                ),
               ),
-              margin: EdgeInsets.only(right: 5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.blue,
+              Container(
+                child: Center(
+                  child: Text('Food 3'),
+                ),
+                margin: EdgeInsets.only(left: 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.red,
+                ),
               ),
-            ),
-            Container(
-              child: Center(
-                child: Text('Food 3'),
+              Container(
+                child: Center(
+                  child: Text('Food 4'),
+                ),
+                margin: EdgeInsets.only(right: 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.green,
+                ),
               ),
-              margin: EdgeInsets.only(left: 5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.red,
-              ),
-            ),
-            Container(
-              child: Center(
-                child: Text('Food 4'),
-              ),
-              margin: EdgeInsets.only(right: 5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.green,
-              ),
-            ),
-          ],
-        )
-      ],
+            ],
+          )
+        ],
+      ),
     );
   }
 }
