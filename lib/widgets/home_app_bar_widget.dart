@@ -2,7 +2,8 @@ import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomeAppBarWidget extends BaseWidget {
-  HomeAppBarWidget({Key? key}) : super(key: key);
+
+  const HomeAppBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

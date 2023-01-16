@@ -1,5 +1,4 @@
 import 'package:cafeterianhs/widgets/base_widgets.dart';
-import 'package:cafeterianhs/widgets/home_widget.dart';
 import 'package:flutter/material.dart';
 
 class LikesWidget extends BaseWidget {
@@ -12,11 +11,11 @@ class LikesWidget extends BaseWidget {
         SliverAppBar(
           leading: IconButton(
             onPressed: () {},
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
           expandedHeight: 100,
           backgroundColor: Colors.deepPurple[300],
-          flexibleSpace: FlexibleSpaceBar(
+          flexibleSpace: const FlexibleSpaceBar(
             centerTitle: true,
             title: Text('Likes'),
           ),
@@ -24,14 +23,15 @@ class LikesWidget extends BaseWidget {
         SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
             return Container(
+              // ignore: prefer_const_constructors
               margin: EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15),
               height: 50,
               alignment: Alignment.center,
-              child: Text('Likes $index'),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: Colors.deepOrange[300],
               ),
+              child: Text('Likes $index'),
             );
           }, childCount: 5),
         )
