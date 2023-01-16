@@ -3,6 +3,7 @@ import 'package:cafeterianhs/widgets/sliver_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends BaseWidget {
+  
   const ProfileWidget({Key? key}) : super(key: key);
 
   @override

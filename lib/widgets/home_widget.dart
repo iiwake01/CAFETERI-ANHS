@@ -1,11 +1,11 @@
-import 'dart:developer';
-
 import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:cafeterianhs/widgets/sliver_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeWidget extends BaseWidget {
+
   const HomeWidget({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Container(

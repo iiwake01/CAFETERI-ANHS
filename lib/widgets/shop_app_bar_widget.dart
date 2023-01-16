@@ -3,6 +3,7 @@ import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
 class ShopAppBarWidget extends BaseWidget<MainController> {
+  
   const ShopAppBarWidget({Key? key}) : super(key: key);
 
   @override
