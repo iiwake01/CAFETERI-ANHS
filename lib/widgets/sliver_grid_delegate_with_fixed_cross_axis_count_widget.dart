@@ -1,17 +1,6 @@
-import 'package:cafeterianhs/widgets/base_widgets.dart';
 import 'package:flutter/material.dart';
 
-// class SliverGridDelegateWithFixedCrossAxisCountWidget extends BaseWidget {
+class SliverGridDelegateWithFixedCrossAxisCountWidget extends SliverGridDelegateWithFixedCrossAxisCount {
 
-//   const SliverGridDelegateWithFixedCrossAxisCountWidget( { super.key } );
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SliverGridDelegateWithFixedCrossAxisCount (
-//       crossAxisSpacing: 12,
-//       crossAxisCount: 2,
-//       mainAxisSpacing: 12,
-//       mainAxisExtent: 250
-//     );
-//   }
-// }
+  SliverGridDelegateWithFixedCrossAxisCountWidget() : super(crossAxisCount: 2, crossAxisSpacing:  12, mainAxisExtent:  250, mainAxisSpacing: 12,);
+}
