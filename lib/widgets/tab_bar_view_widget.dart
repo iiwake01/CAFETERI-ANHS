@@ -13,50 +13,60 @@ class TabBarViewWidget extends BaseWidget<MainController> {
     return TabBarView(
       controller: controller.getTabController(),
       children: [
-        Center(
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
-            itemCount: controller.getShopLength(ShopCategoryEnum.all),
-            itemBuilder: (_, index) {
-              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.all), name: controller.getShopName(index, ShopCategoryEnum.all),);
-            },
-          ),
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
+          itemCount: controller.getShopLength(ShopCategoryEnum.all),
+          itemBuilder: (_, index) {
+            return CardViewWidget(
+              image: controller.getShopImage(index, ShopCategoryEnum.all),
+              name: controller.getShopName(index, ShopCategoryEnum.all),
+              price: controller.getShopPrice(index, ShopCategoryEnum.all),
+            );
+          },
         ),
-        Center(
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
-            itemCount: controller.getShopLength(ShopCategoryEnum.drink),
-            itemBuilder: (_, index) {
-              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.drink), name: controller.getShopName(index, ShopCategoryEnum.drink),);
-            },
-          ),
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
+          itemCount: controller.getShopLength(ShopCategoryEnum.drink),
+          itemBuilder: (_, index) {
+            return CardViewWidget(
+              image: controller.getShopImage(index, ShopCategoryEnum.drink),
+              name: controller.getShopName(index, ShopCategoryEnum.drink),
+              price: controller.getShopPrice(index, ShopCategoryEnum.drink),
+            );
+          },
         ),
-        Center(
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
-            itemCount: controller.getShopLength(ShopCategoryEnum.meal),
-            itemBuilder: (_, index) {
-              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.meal), name: controller.getShopName(index, ShopCategoryEnum.meal),);
-            },
-          ),
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
+          itemCount: controller.getShopLength(ShopCategoryEnum.meal),
+          itemBuilder: (_, index) {
+            return CardViewWidget(
+              image: controller.getShopImage(index, ShopCategoryEnum.meal),
+              name: controller.getShopName(index, ShopCategoryEnum.meal),
+              price: controller.getShopPrice(index, ShopCategoryEnum.meal),
+            );
+          },
         ),
-        Center(
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
-            itemCount: controller.getShopLength(ShopCategoryEnum.junk),
-            itemBuilder: (_, index) {
-              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.junk), name: controller.getShopName(index, ShopCategoryEnum.junk),);
-            },
-          ),
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
+          itemCount: controller.getShopLength(ShopCategoryEnum.junk),
+          itemBuilder: (_, index) {
+            return CardViewWidget(
+              image: controller.getShopImage(index, ShopCategoryEnum.junk),
+              name: controller.getShopName(index, ShopCategoryEnum.junk),
+              price: controller.getShopPrice(index, ShopCategoryEnum.junk),
+            );
+          },
         ),
-        Center(
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
-            itemCount: controller.getShopLength(ShopCategoryEnum.dessert),
-            itemBuilder: (_, index) {
-              return CardViewWidget(image: controller.getShopImage(index, ShopCategoryEnum.dessert), name: controller.getShopName(index, ShopCategoryEnum.dessert),);
-            },
-          ),
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
+          itemCount: controller.getShopLength(ShopCategoryEnum.dessert),
+          itemBuilder: (_, index) {
+            return CardViewWidget(
+              image: controller.getShopImage(index, ShopCategoryEnum.dessert),
+              name: controller.getShopName(index, ShopCategoryEnum.dessert),
+              price: controller.getShopPrice(index, ShopCategoryEnum.dessert),
+            );
+          },
         ),
       ],
     );

@@ -1,6 +1,6 @@
 {
-    "name": "cafeterianhs",
-    "short_name": "cafeterianhs",
+    "name": "Cafeteria",
+    "short_name": "Cafeteria",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
