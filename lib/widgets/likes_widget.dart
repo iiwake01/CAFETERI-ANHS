@@ -8,6 +8,8 @@ class LikesWidget extends BaseWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: <Widget>[
+        //Appbar
+
         SliverAppBar(
           leading: IconButton(
             onPressed: () {},
@@ -20,21 +22,6 @@ class LikesWidget extends BaseWidget {
             title: Text('Likes'),
           ),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate((context, index) {
-            return Container(
-              // ignore: prefer_const_constructors
-              margin: EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15),
-              height: 50,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.deepOrange[300],
-              ),
-              child: Text('Likes $index'),
-            );
-          }, childCount: 5),
-        )
       ],
     );
   }

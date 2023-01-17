@@ -85,45 +85,109 @@ class MainController extends BaseController
       image:
           'https://cdn.shopify.com/s/files/1/0280/7126/4308/products/cokecan_1079x.png?v=1586878773',
       name: 'Coke',
+      category: ShopCategoryEnum.drink,
       price: 'P32',
+    ));
+    _shopList.add(ShopModel(
+      id: null,
+      image:
+          'https://www.acs.org/content/acs/en/pressroom/presspacs/2015/acs-presspac-january-21-2015/oranges-versus-orange-juice-which-one-might-be-better-for-your-health/_jcr_content/pressPacContent/columnsbootstrap/column1/image.img.jpg/1421826829406.jpg',
+      name: 'Orange Juice',
+      category: ShopCategoryEnum.drink,
+      price: 'P10',
     ));
     _shopList.add(ShopModel(
       id: null,
       image:
           'https://storage.googleapis.com/aigensstoretest.appspot.com/SHXFfvGnCYtPEQpuZNWGBg.jpg',
       name: 'Inasal',
+      category: ShopCategoryEnum.meal,
       price: 'P75',
+    ));
+    _shopList.add(ShopModel(
+      id: null,
+      image:
+          'https://panlasangpinoy.com/wp-content/uploads/2016/09/Ginataang-Gulay-500x485.jpg',
+      name: 'Ginataang Gulay',
+      category: ShopCategoryEnum.meal,
+      price: 'P25',
     ));
     _shopList.add(ShopModel(
       id: null,
       image:
           'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684711722806/ddb89c9c74208ec13bd1918c40da1730_large.png&width=512&type=webp&quality=90',
       name: 'Chips',
+      category: ShopCategoryEnum.junk,
       price: 'P15',
+    ));
+    _shopList.add(ShopModel(
+      id: null,
+      image:
+          'https://images.freshop.com/8195234/a8433dd5f5a47ff02addadf50b30b6a0_large.png',
+      name: 'Piatos',
+      category: ShopCategoryEnum.junk,
+      price: 'P35',
     ));
     _shopList.add(ShopModel(
       id: null,
       image:
           'https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg',
       name: 'Ice Cream',
+      category: ShopCategoryEnum.dessert,
       price: 'P25',
+    ));
+    _shopList.add(ShopModel(
+      id: null,
+      image:
+          'https://shop.gerald.ph/content/images/thumbs/0031536_magnum-almond-pint_340.png',
+      name: 'Magnum',
+      category: ShopCategoryEnum.dessert,
+      price: 'P200',
     ));
   }
 
   String getShopImage(int index, ShopCategoryEnum category) {
-    return _shopList.value[index].image ?? "Nil";
+    return _shopList
+            .where((model) =>
+                (category == ShopCategoryEnum.all) ||
+                (category != ShopCategoryEnum.all &&
+                    model.category == category))
+            .toList()[index]
+            .image ??
+        "Nil";
   }
 
   String getShopName(int index, ShopCategoryEnum category) {
-    return _shopList.value[index].name ?? "Nil";
+    return _shopList
+            .where((model) =>
+                (category == ShopCategoryEnum.all) ||
+                (category != ShopCategoryEnum.all &&
+                    model.category == category))
+            .toList()[index]
+            .name ??
+        "Nil";
   }
 
   String getShopPrice(int index, ShopCategoryEnum category) {
-    return _shopList.value[index].price ?? "Nil";
+    return _shopList
+            .where((model) =>
+                (category == ShopCategoryEnum.all) ||
+                (category != ShopCategoryEnum.all &&
+                    model.category == category))
+            .toList()[index]
+            .price ??
+        "Nil";
   }
 
   int getShopLength(ShopCategoryEnum category) {
-    return _shopList.value.length ?? 0;
+    return _shopList
+            .where((model) =>
+                (category == ShopCategoryEnum.all) ||
+                (category != ShopCategoryEnum.all &&
+                    model.category == category))
+            .toList()
+            .length ??
+        0;
   }
 
   @override
