@@ -7,13 +7,13 @@ class CardViewWidget extends BaseWidget {
     required this.image,
     required this.name,
     required this.price,
-    required this.onPressedFavorites,
+    required this.onPressedLikes,
   });
 
   final String image;
   final String name;
   final String price;
-  final VoidCallback? onPressedFavorites;
+  final VoidCallback? onPressedLikes;
 
   @override
   Widget build(BuildContext context) {

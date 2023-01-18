@@ -21,8 +21,8 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               image: controller.getShopImage(index, ShopCategoryEnum.all),
               name: controller.getShopName(index, ShopCategoryEnum.all),
               price: controller.getShopPrice(index, ShopCategoryEnum.all),
-              onPressedFavorites: () {
-                controller.setFavorites(index, ShopCategoryEnum.all);
+              onPressedLikes: () {
+                controller.setLikes(index, ShopCategoryEnum.all);
               },
             );
           },
@@ -35,7 +35,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               image: controller.getShopImage(index, ShopCategoryEnum.drink),
               name: controller.getShopName(index, ShopCategoryEnum.drink),
               price: controller.getShopPrice(index, ShopCategoryEnum.drink),
-              onPressedFavorites: null,
+              onPressedLikes: () {
+                controller.setLikes(index, ShopCategoryEnum.all);
+              },
             );
           },
         ),
@@ -47,7 +49,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               image: controller.getShopImage(index, ShopCategoryEnum.meal),
               name: controller.getShopName(index, ShopCategoryEnum.meal),
               price: controller.getShopPrice(index, ShopCategoryEnum.meal),
-              onPressedFavorites: null,
+              onPressedLikes: () {
+                controller.setLikes(index, ShopCategoryEnum.all);
+              },
             );
           },
         ),
@@ -59,7 +63,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               image: controller.getShopImage(index, ShopCategoryEnum.junk),
               name: controller.getShopName(index, ShopCategoryEnum.junk),
               price: controller.getShopPrice(index, ShopCategoryEnum.junk),
-              onPressedFavorites: null,
+              onPressedLikes: () {
+                controller.setLikes(index, ShopCategoryEnum.all);
+              },
             );
           },
         ),
@@ -71,7 +77,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               image: controller.getShopImage(index, ShopCategoryEnum.dessert),
               name: controller.getShopName(index, ShopCategoryEnum.dessert),
               price: controller.getShopPrice(index, ShopCategoryEnum.dessert),
-              onPressedFavorites: null,
+              onPressedLikes: () {
+                controller.setLikes(index, ShopCategoryEnum.all);
+              },
             );
           },
         ),
