@@ -19,7 +19,6 @@ class ShopModel {
 
   @override
   String toString() {
-    return "ShopModel id $id, image $image, name $name, category $category, price $price, isLikes $isLikes" ??
-        super.toString();
+    return "ShopModel id $id, image $image, name $name, category $category, price $price, isLikes $isLikes" ?? super.toString();
   }
 }

@@ -80,7 +80,7 @@ class MainController extends BaseController
   void _setShopList() {
     _shopList.value = <ShopModel>[];
     _shopList.add(ShopModel(
-      id: null,
+      id: 1,
       image:
           'https://cdn.shopify.com/s/files/1/0280/7126/4308/products/cokecan_1079x.png?v=1586878773',
       name: 'Coke',
@@ -89,7 +89,7 @@ class MainController extends BaseController
       isLikes: false,
     ));
     _shopList.add(ShopModel(
-      id: null,
+      id: 2,
       image:
           'https://www.acs.org/content/acs/en/pressroom/presspacs/2015/acs-presspac-january-21-2015/oranges-versus-orange-juice-which-one-might-be-better-for-your-health/_jcr_content/pressPacContent/columnsbootstrap/column1/image.img.jpg/1421826829406.jpg',
       name: 'Orange Juice',
@@ -98,7 +98,7 @@ class MainController extends BaseController
       isLikes: false,
     ));
     _shopList.add(ShopModel(
-      id: null,
+      id: 3,
       image:
           'https://storage.googleapis.com/aigensstoretest.appspot.com/SHXFfvGnCYtPEQpuZNWGBg.jpg',
       name: 'Inasal',
@@ -107,7 +107,7 @@ class MainController extends BaseController
       isLikes: false,
     ));
     _shopList.add(ShopModel(
-      id: null,
+      id: 4,
       image:
           'https://panlasangpinoy.com/wp-content/uploads/2016/09/Ginataang-Gulay-500x485.jpg',
       name: 'Ginataang Gulay',
@@ -116,7 +116,7 @@ class MainController extends BaseController
       isLikes: false,
     ));
     _shopList.add(ShopModel(
-      id: null,
+      id: 5,
       image:
           'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684711722806/ddb89c9c74208ec13bd1918c40da1730_large.png&width=512&type=webp&quality=90',
       name: 'Chips',
@@ -125,7 +125,7 @@ class MainController extends BaseController
       isLikes: false,
     ));
     _shopList.add(ShopModel(
-      id: null,
+      id: 6,
       image:
           'https://images.freshop.com/8195234/a8433dd5f5a47ff02addadf50b30b6a0_large.png',
       name: 'Piatos',
@@ -134,7 +134,7 @@ class MainController extends BaseController
       isLikes: false,
     ));
     _shopList.add(ShopModel(
-      id: null,
+      id: 7,
       image:
           'https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg',
       name: 'Ice Cream',
@@ -143,7 +143,7 @@ class MainController extends BaseController
       isLikes: false,
     ));
     _shopList.add(ShopModel(
-      id: null,
+      id: 8,
       image:
           'https://shop.gerald.ph/content/images/thumbs/0031536_magnum-almond-pint_340.png',
       name: 'Magnum',
@@ -152,7 +152,6 @@ class MainController extends BaseController
       isLikes: false,
     ));
   }
-
   //#region Shop Method
   String getShopImage(int index, ShopCategoryEnum category) {
     return _shopList
@@ -201,13 +200,16 @@ class MainController extends BaseController
   //#endregion
   //#region Favorites Method
   void setLikes(int index, ShopCategoryEnum category) {
+    debugPrint("MainController setLikes($index, $category)");
     final ShopModel _model = _shopList
         .where((model) =>
             (category == ShopCategoryEnum.all) ||
             (category != ShopCategoryEnum.all && model.category == category))
         .toList()[index];
     _model.isLikes == true ? _model.isLikes = false : _model.isLikes = true;
+    debugPrint("MainController _model ${_model.toString()}");
     _shopList[index] = _model;
+    debugPrint("MainController _model ${_shopList.value.toString()}");
   }
 
   String getFavoritesImage(int index) {

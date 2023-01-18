@@ -60,7 +60,7 @@ class CardViewWidget extends BaseWidget {
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: onPressedLikes,
                       icon: Icon(Icons.favorite_border),
                     ),
                     IconButton(
