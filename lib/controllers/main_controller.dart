@@ -1,7 +1,6 @@
 import 'package:cafeterianhs/models/shop_model.dart';
 import 'package:cafeterianhs/utils/app_bar_enum.dart';
 import 'package:cafeterianhs/utils/shop_category_enum.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'base_controller.dart';
@@ -87,6 +86,7 @@ class MainController extends BaseController
       name: 'Coke',
       category: ShopCategoryEnum.drink,
       price: 'P32',
+      isFavorites: false,
     ));
     _shopList.add(ShopModel(
       id: null,
@@ -95,6 +95,7 @@ class MainController extends BaseController
       name: 'Orange Juice',
       category: ShopCategoryEnum.drink,
       price: 'P10',
+      isFavorites: false,
     ));
     _shopList.add(ShopModel(
       id: null,
@@ -103,6 +104,7 @@ class MainController extends BaseController
       name: 'Inasal',
       category: ShopCategoryEnum.meal,
       price: 'P75',
+      isFavorites: false,
     ));
     _shopList.add(ShopModel(
       id: null,
@@ -111,6 +113,7 @@ class MainController extends BaseController
       name: 'Ginataang Gulay',
       category: ShopCategoryEnum.meal,
       price: 'P25',
+      isFavorites: false,
     ));
     _shopList.add(ShopModel(
       id: null,
@@ -119,6 +122,7 @@ class MainController extends BaseController
       name: 'Chips',
       category: ShopCategoryEnum.junk,
       price: 'P15',
+      isFavorites: false,
     ));
     _shopList.add(ShopModel(
       id: null,
@@ -127,6 +131,7 @@ class MainController extends BaseController
       name: 'Piatos',
       category: ShopCategoryEnum.junk,
       price: 'P35',
+      isFavorites: false,
     ));
     _shopList.add(ShopModel(
       id: null,
@@ -135,6 +140,7 @@ class MainController extends BaseController
       name: 'Ice Cream',
       category: ShopCategoryEnum.dessert,
       price: 'P25',
+      isFavorites: false,
     ));
     _shopList.add(ShopModel(
       id: null,
@@ -143,9 +149,10 @@ class MainController extends BaseController
       name: 'Magnum',
       category: ShopCategoryEnum.dessert,
       price: 'P200',
+      isFavorites: false,
     ));
   }
-
+  //#region Shop Method
   String getShopImage(int index, ShopCategoryEnum category) {
     return _shopList
             .where((model) =>
@@ -189,16 +196,45 @@ class MainController extends BaseController
             .length ??
         0;
   }
-
+  //#endregion
+  //#region Favorites Method
   void setFavorites(int index, ShopCategoryEnum category) {
-    // _shopList
-    //     .where((model) =>
-    //         (category == ShopCategoryEnum.all) ||
-    //         (category != ShopCategoryEnum.all && model.category == category))
-    //     .toList()[index]
-    //     .isFavorites;
+    final ShopModel _model = _shopList
+        .where((model) =>
+            (category == ShopCategoryEnum.all) ||
+            (category != ShopCategoryEnum.all && model.category == category))
+        .toList()[index];
+    _model.isFavorites == true ? _model.isFavorites = false : _model.isFavorites = true;
   }
 
+  String getFavoritesImage(int index) {
+    return _shopList
+      .where( (model) => model.isFavorites == true )                
+      .toList()[index]
+      .image ?? "Nil";
+  }
+
+  String getFavoritesName(int index) {
+    return _shopList
+      .where( (model) => model.isFavorites == true )                
+      .toList()[index]
+      .name ?? "Nil";
+  }
+
+  String getFavoritesPrice(int index) {
+    return _shopList
+      .where( (model) => model.isFavorites == true )                
+      .toList()[index]
+      .price ?? "Nil";
+  }
+
+  int getFavoritesLenght(int index) {
+    return _shopList
+      .where( (model) => model.isFavorites == true )                
+      .toList()
+      .length ?? 0;
+  }
+  //#endregion
   @override
   void onClose() {
     _appbar(AppBarEnum.none);

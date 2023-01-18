@@ -1,22 +1,23 @@
-import 'dart:ffi';
-
 import 'package:cafeterianhs/utils/shop_category_enum.dart';
 
 class ShopModel {
   ShopModel(
-      {this.id,
+    {
+      this.id,
       this.image,
       this.name,
       this.category,
       this.price,
-      this.isFavorites});
+      this.isFavorites
+    }
+  );
 
   final int? id;
   final String? image;
   final String? name;
   final ShopCategoryEnum? category;
   final String? price;
-  Bool? isFavorites;
+  bool? isFavorites;
 
   @override
   String toString() {
