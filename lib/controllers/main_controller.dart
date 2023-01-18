@@ -190,6 +190,15 @@ class MainController extends BaseController
         0;
   }
 
+  void setFavorites(int index, ShopCategoryEnum category) {
+    // _shopList
+    //     .where((model) =>
+    //         (category == ShopCategoryEnum.all) ||
+    //         (category != ShopCategoryEnum.all && model.category == category))
+    //     .toList()[index]
+    //     .isFavorites;
+  }
+
   @override
   void onClose() {
     _appbar(AppBarEnum.none);

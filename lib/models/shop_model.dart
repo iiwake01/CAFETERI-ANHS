@@ -16,7 +16,7 @@ class ShopModel {
   final String? name;
   final ShopCategoryEnum? category;
   final String? price;
-  final Bool? isFavorites;
+  Bool? isFavorites;
 
   @override
   String toString() {
