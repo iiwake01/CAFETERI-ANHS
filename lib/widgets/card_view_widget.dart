@@ -8,12 +8,14 @@ class CardViewWidget extends BaseWidget {
     required this.name,
     required this.price,
     required this.onPressedLikes,
+    required this.onPressedCart,
   });
 
   final String image;
   final String name;
   final String price;
   final VoidCallback? onPressedLikes;
+  final VoidCallback? onPressedCart;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,7 @@ class CardViewWidget extends BaseWidget {
                   name,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 15,
                   ),
                 ),
                 SizedBox(

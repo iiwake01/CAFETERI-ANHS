@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SliverGridDelegateWithFixedCrossAxisCountWidget
     extends SliverGridDelegateWithFixedCrossAxisCount {
-  SliverGridDelegateWithFixedCrossAxisCountWidget()
+  SliverGridDelegateWithFixedCrossAxisCountWidget({required})
       : super(
           crossAxisCount: 2,
           crossAxisSpacing: 12,

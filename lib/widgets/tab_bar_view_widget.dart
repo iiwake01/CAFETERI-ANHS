@@ -24,6 +24,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               onPressedLikes: () {
                 controller.setLikes(index, ShopCategoryEnum.all);
               },
+              onPressedCart: () {
+                controller.setCart(index, ShopCategoryEnum.all);
+              },
             );
           },
         ),
@@ -37,6 +40,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               price: controller.getShopPrice(index, ShopCategoryEnum.drink),
               onPressedLikes: () {
                 controller.setLikes(index, ShopCategoryEnum.all);
+              },
+              onPressedCart: () {
+                controller.setCart(index, ShopCategoryEnum.all);
               },
             );
           },
@@ -52,6 +58,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               onPressedLikes: () {
                 controller.setLikes(index, ShopCategoryEnum.all);
               },
+              onPressedCart: () {
+                controller.setCart(index, ShopCategoryEnum.all);
+              },
             );
           },
         ),
@@ -66,6 +75,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               onPressedLikes: () {
                 controller.setLikes(index, ShopCategoryEnum.all);
               },
+              onPressedCart: () {
+                controller.setCart(index, ShopCategoryEnum.all);
+              },
             );
           },
         ),
@@ -79,6 +91,9 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               price: controller.getShopPrice(index, ShopCategoryEnum.dessert),
               onPressedLikes: () {
                 controller.setLikes(index, ShopCategoryEnum.all);
+              },
+              onPressedCart: () {
+                controller.setCart(index, ShopCategoryEnum.all);
               },
             );
           },

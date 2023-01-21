@@ -87,6 +87,7 @@ class MainController extends BaseController
       category: ShopCategoryEnum.drink,
       price: 'P32',
       isLikes: false,
+      isCart: false,
     ));
     _shopList.add(ShopModel(
       id: 2,
@@ -96,6 +97,7 @@ class MainController extends BaseController
       category: ShopCategoryEnum.drink,
       price: 'P10',
       isLikes: false,
+      isCart: false,
     ));
     _shopList.add(ShopModel(
       id: 3,
@@ -105,6 +107,7 @@ class MainController extends BaseController
       category: ShopCategoryEnum.meal,
       price: 'P75',
       isLikes: false,
+      isCart: false,
     ));
     _shopList.add(ShopModel(
       id: 4,
@@ -114,6 +117,7 @@ class MainController extends BaseController
       category: ShopCategoryEnum.meal,
       price: 'P25',
       isLikes: false,
+      isCart: false,
     ));
     _shopList.add(ShopModel(
       id: 5,
@@ -123,6 +127,7 @@ class MainController extends BaseController
       category: ShopCategoryEnum.junk,
       price: 'P15',
       isLikes: false,
+      isCart: false,
     ));
     _shopList.add(ShopModel(
       id: 6,
@@ -132,6 +137,7 @@ class MainController extends BaseController
       category: ShopCategoryEnum.junk,
       price: 'P35',
       isLikes: false,
+      isCart: false,
     ));
     _shopList.add(ShopModel(
       id: 7,
@@ -141,6 +147,7 @@ class MainController extends BaseController
       category: ShopCategoryEnum.dessert,
       price: 'P25',
       isLikes: false,
+      isCart: false,
     ));
     _shopList.add(ShopModel(
       id: 8,
@@ -150,8 +157,10 @@ class MainController extends BaseController
       category: ShopCategoryEnum.dessert,
       price: 'P200',
       isLikes: false,
+      isCart: false,
     ));
   }
+
   //#region Shop Method
   String getShopImage(int index, ShopCategoryEnum category) {
     return _shopList
@@ -239,6 +248,17 @@ class MainController extends BaseController
   int getFavoritesLength() {
     return _shopList.where((model) => model.isLikes == true).toList().length ??
         0;
+  }
+
+  //#endregion
+  //setCartRegion
+  void setCart(int index, ShopCategoryEnum category) {
+    final ShopModel _model = _shopList
+        .where((model) =>
+            (category == ShopCategoryEnum.all) ||
+            (category != ShopCategoryEnum.all && model.category == category))
+        .toList()[index];
+    _model.isCart == true ? _model.isCart = false : _model.isCart = true;
   }
 
   //#endregion
