@@ -59,10 +59,9 @@ class CartController extends BaseController {
   ) {
     debugPrint("CartController increamentQuanity($index)");
     //TODO: Increament by one at ShopModel quantity integer
-    final ShopModel _model =
-        _CartList.where((model) => model.isCart == true).toList()[index];
+    final ShopModel _model = _CartList.where((model) => model.isCart == true).toList()[index];
     _model.quanity = _model.quanity! + 1;
-    _CartList[index] = _model;
+    _CartList.where((model) => model.isCart == true).toList()[index] = _model;
   }
 
   void decrementQuantity(
@@ -70,12 +69,11 @@ class CartController extends BaseController {
   ) {
     debugPrint("CartController decrementQuantity($index)");
     //TODO: Decrement by one at ShopModel quantity integer
-    final ShopModel _model =
-        _CartList.where((model) => model.isCart == true).toList()[index];
+    final ShopModel _model = _CartList.where((model) => model.isCart == true).toList()[index];
 
     if (_model.quanity! > 0) {
       _model.quanity = _model.quanity! - 1;
-      _CartList[index] = _model;
+      _CartList.where((model) => model.isCart == true).toList()[index] = _model;
     } else {
       Get.snackbar('Error', 'Quantity cannot be less than 0',
           snackPosition: SnackPosition.BOTTOM);
