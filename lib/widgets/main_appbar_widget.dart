@@ -5,9 +5,9 @@ import 'package:cafeterianhs/widgets/shop_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AppbarWidget extends BaseWidget<MainController> with PreferredSizeWidget {
+class MainAppbarWidget extends BaseWidget<MainController> with PreferredSizeWidget {
   
-  const AppbarWidget( { super.key,} );
+  const MainAppbarWidget( { super.key,} );
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,6 @@ class AppbarWidget extends BaseWidget<MainController> with PreferredSizeWidget {
 
   @override
   Size get preferredSize {
-    return Size.fromHeight(125); //controller.getPreferredSize();
+    return const Size.fromHeight(125); //controller.getPreferredSize();
   }
 }

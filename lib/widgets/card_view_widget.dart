@@ -67,7 +67,7 @@ class CardViewWidget extends BaseWidget {
                       icon: Icon(Icons.favorite_border),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: onPressedCart,
                       icon: Icon(Icons.shopping_cart),
                     ),
                   ],

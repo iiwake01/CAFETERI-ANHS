@@ -18,18 +18,18 @@ class LikesWidget extends BaseWidget<MainController> {
           backgroundColor: Colors.deepPurple[300],
           flexibleSpace: const FlexibleSpaceBar(
             centerTitle: true,
-            title: Text('Favorites'),
+            title: Text('Likes'),
           ),
         ),
         Obx(() {
           return SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
             delegate: SliverChildBuilderDelegate(
-                childCount: controller.getFavoritesLength(), ((context, index) {
+                childCount: controller.getLikesLength(), ((context, index) {
               return CardViewWidget(
-                image: controller.getFavoritesImage(index),
-                name: controller.getFavoritesName(index),
-                price: controller.getFavoritesPrice(index),
+                image: controller.getLikesImage(index),
+                name: controller.getLikesName(index),
+                price: controller.getLikesPrice(index),
                 onPressedLikes: () {
                   controller.setLikes(index, ShopCategoryEnum.all);
                 },
@@ -44,21 +44,3 @@ class LikesWidget extends BaseWidget<MainController> {
     );
   }
 }
-
-// Obx(() {
-//           return SliverList(
-//             delegate: SliverChildBuilderDelegate(
-//               childCount: controller.getFavoritesLength(),
-//               (context, index) {
-//                 return CardViewWidget(
-//                   image: controller.getFavoritesImage(index),
-//                   name: controller.getFavoritesName(index),
-//                   price: controller.getFavoritesPrice(index),
-//                   onPressedLikes: () {
-//                     controller.setLikes(index, ShopCategoryEnum.all);
-//                   },
-//                 );
-//               },
-//             ),
-//           );
-//         }),

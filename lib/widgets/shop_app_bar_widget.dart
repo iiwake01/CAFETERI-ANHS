@@ -38,7 +38,7 @@ class ShopAppBarWidget extends BaseWidget<MainController> {
               controller.setTabIndex(index);
               controller.setBottomIndex(1); 
             }, 
-            */
+          */
           isScrollable: false,
           tabs: const <Widget>[
             Tab(

@@ -8,7 +8,8 @@ class ShopModel {
     this.category,
     this.price,
     this.isLikes,
-    required bool isCart,
+    this.isCart,
+    this.quanity,
   });
 
   final int? id;
@@ -18,10 +19,10 @@ class ShopModel {
   final String? price;
   bool? isLikes;
   bool? isCart;
+  int? quanity;
 
   @override
   String toString() {
-    return "ShopModel id $id, image $image, name $name, category $category, price $price, isLikes $isLikes, isCart $isCart" ??
-        super.toString();
+    return "ShopModel id $id, image $image, name $name, category $category, price $price, isLikes $isLikes, isCart $isCart, quanity $quanity" ?? super.toString();
   }
 }

@@ -39,10 +39,10 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               name: controller.getShopName(index, ShopCategoryEnum.drink),
               price: controller.getShopPrice(index, ShopCategoryEnum.drink),
               onPressedLikes: () {
-                controller.setLikes(index, ShopCategoryEnum.all);
+                controller.setLikes(index, ShopCategoryEnum.drink);
               },
               onPressedCart: () {
-                controller.setCart(index, ShopCategoryEnum.all);
+                controller.setCart(index, ShopCategoryEnum.drink);
               },
             );
           },
@@ -56,10 +56,10 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               name: controller.getShopName(index, ShopCategoryEnum.meal),
               price: controller.getShopPrice(index, ShopCategoryEnum.meal),
               onPressedLikes: () {
-                controller.setLikes(index, ShopCategoryEnum.all);
+                controller.setLikes(index, ShopCategoryEnum.meal);
               },
               onPressedCart: () {
-                controller.setCart(index, ShopCategoryEnum.all);
+                controller.setCart(index, ShopCategoryEnum.meal);
               },
             );
           },
@@ -73,10 +73,10 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               name: controller.getShopName(index, ShopCategoryEnum.junk),
               price: controller.getShopPrice(index, ShopCategoryEnum.junk),
               onPressedLikes: () {
-                controller.setLikes(index, ShopCategoryEnum.all);
+                controller.setLikes(index, ShopCategoryEnum.junk);
               },
               onPressedCart: () {
-                controller.setCart(index, ShopCategoryEnum.all);
+                controller.setCart(index, ShopCategoryEnum.junk);
               },
             );
           },
@@ -90,10 +90,10 @@ class TabBarViewWidget extends BaseWidget<MainController> {
               name: controller.getShopName(index, ShopCategoryEnum.dessert),
               price: controller.getShopPrice(index, ShopCategoryEnum.dessert),
               onPressedLikes: () {
-                controller.setLikes(index, ShopCategoryEnum.all);
+                controller.setLikes(index, ShopCategoryEnum.dessert);
               },
               onPressedCart: () {
-                controller.setCart(index, ShopCategoryEnum.all);
+                controller.setCart(index, ShopCategoryEnum.dessert);
               },
             );
           },
