@@ -16,13 +16,14 @@ class ShopModel {
   final String? image;
   final String? name;
   final ShopCategoryEnum? category;
-  final String? price;
+  final double? price;
   bool? isLikes;
   bool? isCart;
   int? quanity;
 
   @override
   String toString() {
-    return "ShopModel id $id, image $image, name $name, category $category, price $price, isLikes $isLikes, isCart $isCart, quanity $quanity" ?? super.toString();
+    return "ShopModel id $id, image $image, name $name, category $category, price $price, isLikes $isLikes, isCart $isCart, quanity $quanity" ??
+        super.toString();
   }
 }

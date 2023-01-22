@@ -54,8 +54,7 @@ class MainController extends BaseController
 
   Size getPreferredSize() {
     debugPrint("MainController getPreferredSize(${_preferredSize.value}})");
-    return Size.fromHeight(
-        _preferredSize.value);
+    return Size.fromHeight(_preferredSize.value);
   }
 
   TabController getTabController() {
@@ -86,7 +85,7 @@ class MainController extends BaseController
           'https://cdn.shopify.com/s/files/1/0280/7126/4308/products/cokecan_1079x.png?v=1586878773',
       name: 'Coke',
       category: ShopCategoryEnum.drink,
-      price: 'P32',
+      price: 32,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -97,7 +96,7 @@ class MainController extends BaseController
           'https://www.acs.org/content/acs/en/pressroom/presspacs/2015/acs-presspac-january-21-2015/oranges-versus-orange-juice-which-one-might-be-better-for-your-health/_jcr_content/pressPacContent/columnsbootstrap/column1/image.img.jpg/1421826829406.jpg',
       name: 'Orange Juice',
       category: ShopCategoryEnum.drink,
-      price: 'P10',
+      price: 10,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -108,7 +107,7 @@ class MainController extends BaseController
           'https://storage.googleapis.com/aigensstoretest.appspot.com/SHXFfvGnCYtPEQpuZNWGBg.jpg',
       name: 'Inasal',
       category: ShopCategoryEnum.meal,
-      price: 'P75',
+      price: 75,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -119,7 +118,7 @@ class MainController extends BaseController
           'https://panlasangpinoy.com/wp-content/uploads/2016/09/Ginataang-Gulay-500x485.jpg',
       name: 'Ginataang Gulay',
       category: ShopCategoryEnum.meal,
-      price: 'P25',
+      price: 25,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -130,7 +129,7 @@ class MainController extends BaseController
           'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684711722806/ddb89c9c74208ec13bd1918c40da1730_large.png&width=512&type=webp&quality=90',
       name: 'Chips',
       category: ShopCategoryEnum.junk,
-      price: 'P15',
+      price: 15,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -141,7 +140,7 @@ class MainController extends BaseController
           'https://images.freshop.com/8195234/a8433dd5f5a47ff02addadf50b30b6a0_large.png',
       name: 'Piatos',
       category: ShopCategoryEnum.junk,
-      price: 'P35',
+      price: 35,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -152,7 +151,7 @@ class MainController extends BaseController
           'https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg',
       name: 'Ice Cream',
       category: ShopCategoryEnum.dessert,
-      price: 'P25',
+      price: 25,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -163,12 +162,13 @@ class MainController extends BaseController
           'https://shop.gerald.ph/content/images/thumbs/0031536_magnum-almond-pint_340.png',
       name: 'Magnum',
       category: ShopCategoryEnum.dessert,
-      price: 'P200',
+      price: 200,
       isLikes: false,
       isCart: false,
       quanity: 0,
     ));
   }
+
   //#region Shop Methods
   String getShopImage(int index, ShopCategoryEnum category) {
     return _shopList
@@ -193,14 +193,7 @@ class MainController extends BaseController
   }
 
   String getShopPrice(int index, ShopCategoryEnum category) {
-    return _shopList
-            .where((model) =>
-                (category == ShopCategoryEnum.all) ||
-                (category != ShopCategoryEnum.all &&
-                    model.category == category))
-            .toList()[index]
-            .price ??
-        "Nil";
+    return "₱${_shopList.where((model) => (category == ShopCategoryEnum.all) || (category != ShopCategoryEnum.all && model.category == category)).toList()[index].price.toString() ?? "Nil"}";
   }
 
   int getShopLength(ShopCategoryEnum category) {
@@ -213,6 +206,7 @@ class MainController extends BaseController
             .length ??
         0;
   }
+
   //#endregion
   //#region Likes Methods
   void setLikes(int index, ShopCategoryEnum category) {
@@ -248,7 +242,8 @@ class MainController extends BaseController
     return _shopList
             .where((model) => model.isLikes == true)
             .toList()[index]
-            .price ??
+            .price
+            .toString() ??
         "Nil";
   }
 
@@ -256,6 +251,7 @@ class MainController extends BaseController
     return _shopList.where((model) => model.isLikes == true).toList().length ??
         0;
   }
+
   //#endregion
   //#region Cart Methods
   void setCart(int index, ShopCategoryEnum category) {
@@ -272,6 +268,7 @@ class MainController extends BaseController
     debugPrint("MainController launchCart()");
     Get.toNamed(Routes.CART, arguments: _shopList);
   }
+
   //#endregion
   @override
   void onClose() {
