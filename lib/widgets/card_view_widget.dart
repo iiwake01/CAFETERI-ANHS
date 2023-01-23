@@ -37,6 +37,13 @@ class CardViewWidget extends BaseWidget {
               height: 180,
               fit: BoxFit.cover,
               width: double.infinity,
+              errorBuilder: ((context, error, stackTrace) {
+                return const Icon(
+                  Icons.broken_image,
+                  color: Colors.cyan,
+                  size: 30.0,
+                );
+              }),
             ),
           ),
           Padding(

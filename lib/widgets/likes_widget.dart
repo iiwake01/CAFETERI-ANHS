@@ -11,18 +11,19 @@ class LikesWidget extends BaseWidget<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight: 70,
-            backgroundColor: Colors.deepPurple[300],
-            flexibleSpace: const FlexibleSpaceBar(
-              centerTitle: true,
-              title: Text('Likes'),
+    return Obx(
+      () {
+        return CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 70,
+              backgroundColor: Colors.deepPurple[300],
+              flexibleSpace: const FlexibleSpaceBar(
+                centerTitle: true,
+                title: Text('Likes'),
+              ),
             ),
-          ),
-          SliverGrid(
+            SliverGrid(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
               delegate: SliverChildBuilderDelegate(
                   childCount: controller.getLikesLength(), ((context, index) {
@@ -31,17 +32,22 @@ class LikesWidget extends BaseWidget<MainController> {
                   name: controller.getLikesName(index),
                   price: controller.getLikesPrice(index),
                   onPressedLikes: () {
-                    controller.setUnLike(index,);
+                    controller.setUnLike(
+                      index,
+                    );
                     controller.refreshList();
                   },
                   onPressedCart: () {
-                    controller.setLikeCart(index,);
+                    controller.setLikeCart(
+                      index,
+                    );
                   },
                 );
               })),
             ),
-        ],
-      );
-    },);
+          ],
+        );
+      },
+    );
   }
 }
