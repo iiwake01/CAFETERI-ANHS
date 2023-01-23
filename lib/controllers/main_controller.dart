@@ -167,18 +167,17 @@ class MainController extends BaseController
 
   //#region Shop Methods
   String getShopImage(int index, ShopCategoryEnum category) {
-    return _shopList
+    return _shopList.value
             .where((model) =>
                 (category == ShopCategoryEnum.all) ||
                 (category != ShopCategoryEnum.all &&
                     model.category == category))
             .toList()[index]
-            .image ??
-        "Nil";
+            .image ?? "Nil";
   }
 
   String getShopName(int index, ShopCategoryEnum category) {
-    return _shopList
+    return _shopList.value
             .where((model) =>
                 (category == ShopCategoryEnum.all) ||
                 (category != ShopCategoryEnum.all &&
@@ -193,7 +192,7 @@ class MainController extends BaseController
   }
 
   int getShopLength(ShopCategoryEnum category) {
-    return _shopList
+    return _shopList.value
             .where((model) =>
                 (category == ShopCategoryEnum.all) ||
                 (category != ShopCategoryEnum.all &&
@@ -202,7 +201,6 @@ class MainController extends BaseController
             .length ??
         0;
   }
-
   //#endregion
   //#region Likes Methods
   void setUnLike(
@@ -269,7 +267,7 @@ class MainController extends BaseController
   //#region Cart Methods
   void setCart(int index, ShopCategoryEnum category) {
     debugPrint("MainController setCart($index, $category)");
-    final ShopModel _model = _shopList
+    final ShopModel _model = _shopList.value
         .where((model) =>
             (category == ShopCategoryEnum.all) ||
             (category != ShopCategoryEnum.all))
@@ -288,7 +286,6 @@ class MainController extends BaseController
         _shopList.where((model) => model.isLikes == true).toList()[index];
     _model.isCart == true ? _model.isCart = false : _model.isCart = true;
   }
-
   //#endregion
   @override
   void onClose() {
