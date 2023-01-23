@@ -35,7 +35,7 @@ class LikesWidget extends BaseWidget<MainController> {
                     controller.refreshList();
                   },
                   onPressedCart: () {
-                    controller.setCart(index, ShopCategoryEnum.all);
+                    controller.setLikeCart(index,);
                   },
                 );
               })),

@@ -222,6 +222,14 @@ class MainController extends BaseController
       .forEach((eachModel) => eachModel.isLikes = _model.isLikes ?? false);
   }
 
+  void setLikeCart(int index) {
+    debugPrint("MainController setCart($index,)");
+    final ShopModel _model = _shopList
+        .where((model) => model.isLikes == true)
+        .toList()[index];
+    _model.isCart == true ? _model.isCart = false : _model.isCart = true;
+  }
+
   void setLikes(int index, ShopCategoryEnum category) {
     debugPrint("MainController setLikes($index, $category)");
     final ShopModel _model = _shopList.value
