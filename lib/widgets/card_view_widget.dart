@@ -32,7 +32,7 @@ class CardViewWidget extends BaseWidget {
               topLeft: Radius.circular(12),
               topRight: Radius.circular(12),
             ),
-            child: Image.network(
+            child: Image.asset(
               image,
               height: 180,
               fit: BoxFit.cover,

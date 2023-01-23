@@ -43,8 +43,7 @@ class HomeWidget extends BaseWidget {
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://cdn.shopify.com/s/files/1/0280/7126/4308/products/cokecan_1079x.png?v=1586878773'),
+                    image: AssetImage('assets/icedcoffee.webp'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -56,8 +55,7 @@ class HomeWidget extends BaseWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.blue,
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://storage.googleapis.com/aigensstoretest.appspot.com/SHXFfvGnCYtPEQpuZNWGBg.jpg'),
+                    image: AssetImage('assets/siomairice.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -69,8 +67,7 @@ class HomeWidget extends BaseWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.red,
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684711722806/ddb89c9c74208ec13bd1918c40da1730_large.png&width=512&type=webp&quality=90'),
+                    image: AssetImage('assets/hotdogroll.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -82,8 +79,7 @@ class HomeWidget extends BaseWidget {
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.green,
                     image: DecorationImage(
-                      image: NetworkImage(
-                          'https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg'),
+                      image: AssetImage('assets/halohalo.jpg'),
                       fit: BoxFit.cover,
                     )),
               ),

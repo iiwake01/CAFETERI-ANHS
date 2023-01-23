@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:cafeterianhs/controllers/main_controller.dart';
 import 'package:cafeterianhs/utils/shop_category_enum.dart';
 import 'package:cafeterianhs/widgets/base_widgets.dart';
@@ -17,7 +19,7 @@ class LikesWidget extends BaseWidget<MainController> {
           slivers: <Widget>[
             SliverAppBar(
               expandedHeight: 70,
-              backgroundColor: Colors.deepPurple[300],
+              backgroundColor: Colors.orange[300],
               flexibleSpace: const FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text('Likes'),

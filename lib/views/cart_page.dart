@@ -41,7 +41,7 @@ class CartPage extends BaseWidget<CartController> {
                             color: Colors.white,
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(
+                              image: AssetImage(
                                 controller.getCartImage(index),
                               ),
                             ),

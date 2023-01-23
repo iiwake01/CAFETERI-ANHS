@@ -6,7 +6,7 @@ class SliverGridDelegateWithFixedCrossAxisCountWidget
       : super(
           crossAxisCount: 2,
           crossAxisSpacing: 12,
-          mainAxisExtent: 305,
+          mainAxisExtent: 315,
           mainAxisSpacing: 12,
         );
 }

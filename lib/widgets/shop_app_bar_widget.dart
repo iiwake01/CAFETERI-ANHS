@@ -55,7 +55,7 @@ class ShopAppBarWidget extends BaseWidget<MainController> {
             ),
             Tab(
               icon: Icon(Icons.fastfood),
-              text: ('Junkfood'),
+              text: ('Snacks'),
             ),
             Tab(
               icon: Icon(Icons.icecream_rounded),

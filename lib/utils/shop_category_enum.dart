@@ -1,7 +1,1 @@
-enum ShopCategoryEnum {
-  all,
-  drink,
-  meal,
-  junk,
-  dessert
-}
+enum ShopCategoryEnum { all, drink, meal, snacks, dessert }

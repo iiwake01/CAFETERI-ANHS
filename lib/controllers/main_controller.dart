@@ -77,88 +77,80 @@ class MainController extends BaseController
     _shopList.value = <ShopModel>[];
     _shopList.add(ShopModel(
       id: 1,
-      image:
-          'https://cdn.shopify.com/s/files/1/0280/7126/4308/products/cokecan_1079x.png?v=1586878773',
-      name: 'Coke',
+      image: 'assets/pineapplejuice.jpg',
+      name: 'Pineapple Juice',
       category: ShopCategoryEnum.drink,
-      price: 32,
-      isLikes: false,
-      isCart: false,
-      quanity: 0,
-    ));
-    _shopList.add(ShopModel(
-      id: 2,
-      image:
-          'https://www.acs.org/content/acs/en/pressroom/presspacs/2015/acs-presspac-january-21-2015/oranges-versus-orange-juice-which-one-might-be-better-for-your-health/_jcr_content/pressPacContent/columnsbootstrap/column1/image.img.jpg/1421826829406.jpg',
-      name: 'Orange Juice',
-      category: ShopCategoryEnum.drink,
-      price: 10,
-      isLikes: false,
-      isCart: false,
-      quanity: 0,
-    ));
-    _shopList.add(ShopModel(
-      id: 3,
-      image:
-          'https://storage.googleapis.com/aigensstoretest.appspot.com/SHXFfvGnCYtPEQpuZNWGBg.jpg',
-      name: 'Inasal',
-      category: ShopCategoryEnum.meal,
-      price: 75,
-      isLikes: false,
-      isCart: false,
-      quanity: 0,
-    ));
-    _shopList.add(ShopModel(
-      id: 4,
-      image:
-          'https://panlasangpinoy.com/wp-content/uploads/2016/09/Ginataang-Gulay-500x485.jpg',
-      name: 'Ginataang Gulay',
-      category: ShopCategoryEnum.meal,
-      price: 25,
-      isLikes: false,
-      isCart: false,
-      quanity: 0,
-    ));
-    _shopList.add(ShopModel(
-      id: 5,
-      image:
-          'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684711722806/ddb89c9c74208ec13bd1918c40da1730_large.png&width=512&type=webp&quality=90',
-      name: 'Chips',
-      category: ShopCategoryEnum.junk,
       price: 15,
       isLikes: false,
       isCart: false,
       quanity: 0,
     ));
     _shopList.add(ShopModel(
+      id: 2,
+      image: 'assets/icedcoffee.webp',
+      name: 'Iced Coffee',
+      category: ShopCategoryEnum.drink,
+      price: 39,
+      isLikes: false,
+      isCart: false,
+      quanity: 0,
+    ));
+    _shopList.add(ShopModel(
+      id: 3,
+      image: 'assets/siomairice.jpg',
+      name: 'Siomai Rice',
+      category: ShopCategoryEnum.meal,
+      price: 20,
+      isLikes: false,
+      isCart: false,
+      quanity: 0,
+    ));
+    _shopList.add(ShopModel(
+      id: 4,
+      image: 'assets/ricewithham.png',
+      name: 'Rice with Ham & Egg',
+      category: ShopCategoryEnum.meal,
+      price: 20,
+      isLikes: false,
+      isCart: false,
+      quanity: 0,
+    ));
+    _shopList.add(ShopModel(
+      id: 5,
+      image: 'assets/siopao.jpeg',
+      name: 'Siopao',
+      category: ShopCategoryEnum.snacks,
+      price: 20,
+      isLikes: false,
+      isCart: false,
+      quanity: 0,
+    ));
+    _shopList.add(ShopModel(
       id: 6,
-      image:
-          'https://images.freshop.com/8195234/a8433dd5f5a47ff02addadf50b30b6a0_large.png',
-      name: 'Piatos',
-      category: ShopCategoryEnum.junk,
-      price: 35,
+      image: 'assets/hotdogroll.jpg',
+      name: 'Hotdog Roll',
+      category: ShopCategoryEnum.snacks,
+      price: 15,
       isLikes: false,
       isCart: false,
       quanity: 0,
     ));
     _shopList.add(ShopModel(
       id: 7,
-      image:
-          'https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg',
-      name: 'Ice Cream',
+      image: 'assets/halohalo.jpg',
+      name: 'Halo-Halo',
       category: ShopCategoryEnum.dessert,
-      price: 25,
+      price: 20,
       isLikes: false,
       isCart: false,
       quanity: 0,
     ));
     _shopList.add(ShopModel(
       id: 8,
-      image:
-          'https://shop.gerald.ph/content/images/thumbs/0031536_magnum-almond-pint_340.png',
-      name: 'Magnum',
+      image: 'assets/cookies.jpg',
+      name: 'Cookies',
       category: ShopCategoryEnum.dessert,
-      price: 200,
+      price: 16,
       isLikes: false,
       isCart: false,
       quanity: 0,
@@ -168,7 +160,7 @@ class MainController extends BaseController
   void refreshList() {
     debugPrint("MainController refreshList()");
     setBottomIndex(-1);
-    final Timer _timer = Timer(const Duration(milliseconds: 750), (() {
+    final Timer _timer = Timer(const Duration(milliseconds: 500), (() {
       setBottomIndex(2);
     }));
   }
@@ -280,7 +272,7 @@ class MainController extends BaseController
     final ShopModel _model = _shopList
         .where((model) =>
             (category == ShopCategoryEnum.all) ||
-            (category != ShopCategoryEnum.all && model.category == category))
+            (category != ShopCategoryEnum.all))
         .toList()[index];
     _model.isCart == true ? _model.isCart = false : _model.isCart = true;
   }

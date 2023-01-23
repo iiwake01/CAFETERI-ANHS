@@ -16,7 +16,7 @@ class TabBarViewWidget extends BaseWidget<MainController> {
         GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
           itemCount: controller.getShopLength(ShopCategoryEnum.all),
-          itemBuilder: (_, index) {
+          itemBuilder: (build, index) {
             return CardViewWidget(
               image: controller.getShopImage(index, ShopCategoryEnum.all),
               name: controller.getShopName(index, ShopCategoryEnum.all),
@@ -33,7 +33,7 @@ class TabBarViewWidget extends BaseWidget<MainController> {
         GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
           itemCount: controller.getShopLength(ShopCategoryEnum.drink),
-          itemBuilder: (_, index) {
+          itemBuilder: (build, index) {
             return CardViewWidget(
               image: controller.getShopImage(index, ShopCategoryEnum.drink),
               name: controller.getShopName(index, ShopCategoryEnum.drink),
@@ -50,7 +50,7 @@ class TabBarViewWidget extends BaseWidget<MainController> {
         GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
           itemCount: controller.getShopLength(ShopCategoryEnum.meal),
-          itemBuilder: (_, index) {
+          itemBuilder: (build, index) {
             return CardViewWidget(
               image: controller.getShopImage(index, ShopCategoryEnum.meal),
               name: controller.getShopName(index, ShopCategoryEnum.meal),
@@ -66,17 +66,17 @@ class TabBarViewWidget extends BaseWidget<MainController> {
         ),
         GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
-          itemCount: controller.getShopLength(ShopCategoryEnum.junk),
-          itemBuilder: (_, index) {
+          itemCount: controller.getShopLength(ShopCategoryEnum.snacks),
+          itemBuilder: (build, index) {
             return CardViewWidget(
-              image: controller.getShopImage(index, ShopCategoryEnum.junk),
-              name: controller.getShopName(index, ShopCategoryEnum.junk),
-              price: controller.getShopPrice(index, ShopCategoryEnum.junk),
+              image: controller.getShopImage(index, ShopCategoryEnum.snacks),
+              name: controller.getShopName(index, ShopCategoryEnum.snacks),
+              price: controller.getShopPrice(index, ShopCategoryEnum.snacks),
               onPressedLikes: () {
-                controller.setLikes(index, ShopCategoryEnum.junk);
+                controller.setLikes(index, ShopCategoryEnum.snacks);
               },
               onPressedCart: () {
-                controller.setCart(index, ShopCategoryEnum.junk);
+                controller.setCart(index, ShopCategoryEnum.snacks);
               },
             );
           },
@@ -84,7 +84,7 @@ class TabBarViewWidget extends BaseWidget<MainController> {
         GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
           itemCount: controller.getShopLength(ShopCategoryEnum.dessert),
-          itemBuilder: (_, index) {
+          itemBuilder: (build, index) {
             return CardViewWidget(
               image: controller.getShopImage(index, ShopCategoryEnum.dessert),
               name: controller.getShopName(index, ShopCategoryEnum.dessert),
