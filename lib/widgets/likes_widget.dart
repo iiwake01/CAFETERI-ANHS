@@ -11,36 +11,37 @@ class LikesWidget extends BaseWidget<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          expandedHeight: 70,
-          backgroundColor: Colors.deepPurple[300],
-          flexibleSpace: const FlexibleSpaceBar(
-            centerTitle: true,
-            title: Text('Likes'),
+    return Obx(() {
+      return CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 70,
+            backgroundColor: Colors.deepPurple[300],
+            flexibleSpace: const FlexibleSpaceBar(
+              centerTitle: true,
+              title: Text('Likes'),
+            ),
           ),
-        ),
-        Obx(() {
-          return SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
-            delegate: SliverChildBuilderDelegate(
-                childCount: controller.getLikesLength(), ((context, index) {
-              return CardViewWidget(
-                image: controller.getLikesImage(index),
-                name: controller.getLikesName(index),
-                price: controller.getLikesPrice(index),
-                onPressedLikes: () {
-                  controller.setLikes(index, ShopCategoryEnum.all);
-                },
-                onPressedCart: () {
-                  controller.setCart(index, ShopCategoryEnum.all);
-                },
-              );
-            })),
-          );
-        }),
-      ],
-    );
+          SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCountWidget(),
+              delegate: SliverChildBuilderDelegate(
+                  childCount: controller.getLikesLength(), ((context, index) {
+                return CardViewWidget(
+                  image: controller.getLikesImage(index),
+                  name: controller.getLikesName(index),
+                  price: controller.getLikesPrice(index),
+                  onPressedLikes: () {
+                    controller.setUnLike(index,);
+                    controller.refreshList();
+                  },
+                  onPressedCart: () {
+                    controller.setCart(index, ShopCategoryEnum.all);
+                  },
+                );
+              })),
+            ),
+        ],
+      );
+    },);
   }
 }
