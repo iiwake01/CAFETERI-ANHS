@@ -9,7 +9,7 @@ class CartController extends BaseController {
   }
 
   final RxList<ShopModel> _cartList = new List<ShopModel>.empty().obs;
-  double? subtotal;
+  RxDouble subtotal = 0.00.obs;
 
   @override
   void onInit() {
@@ -19,7 +19,6 @@ class CartController extends BaseController {
     debugPrint("CartController ${_cartList}");
     super.onInit();
   }
-
   //#region Cart Methods
   String getCartImage(int index,) {
     return _cartList.value
@@ -38,7 +37,7 @@ class CartController extends BaseController {
   }
 
   String getQuantity(int index,) {
-    return _cartList.value//.where((model) => model.isCart == true)
+    return _cartList.value
             .toList()[index]
             .quanity
             .toString() ?? "0";
@@ -63,18 +62,19 @@ class CartController extends BaseController {
     }
   }
 
-  String getSubtotal() {
-    debugPrint("CartController getSubtotal()");
-    //TODO: Add All Prices times Quantity
-    subtotal = 0.00;
-    _cartList.value.forEach((model) {
-      debugPrint("CartController ${model.isCart}");
-      if (model.isCart == true && model.quanity! > 0) {
-        subtotal = subtotal! + (model.quanity! * model.price!);
+  void updateSubtotal() {
+    debugPrint("CartController updateSubtotal()");
+    subtotal(0.00);
+    _cartList.value.forEach((eachModel) {
+      if (eachModel.quanity! > 0) {
+        subtotal(subtotal.value! + (eachModel.quanity! * eachModel.price!));
       }
     });
+  }
 
-    return '0';
+  String getSubtotal() {
+    debugPrint("CartController getSubtotal()");    
+    return subtotal.value.toString();
   }
 
   int getCartLength() {

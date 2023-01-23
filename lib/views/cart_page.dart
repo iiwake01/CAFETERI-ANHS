@@ -90,6 +90,7 @@ class CartPage extends BaseWidget<CartController> {
                                         IconButton(
                                           onPressed: () {
                                             controller.decrementQuantity(index);
+                                            controller.updateSubtotal();
                                           },
                                           icon: Icon(
                                             Icons.remove,
@@ -108,6 +109,7 @@ class CartPage extends BaseWidget<CartController> {
                                         IconButton(
                                           onPressed: () {
                                             controller.incrementQuanity(index);
+                                            controller.updateSubtotal();
                                           },
                                           icon: Icon(
                                             Icons.add,
@@ -161,12 +163,14 @@ class CartPage extends BaseWidget<CartController> {
                   width: 10,
                 ),
                 Container(
-                  child: Text(
-                    controller.getSubtotal(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  child: Obx((() {
+                    return Text(
+                      controller.getSubtotal(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    );
+                  })),
                 )
               ],
             ),
