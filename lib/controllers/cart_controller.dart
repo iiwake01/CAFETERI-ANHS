@@ -8,72 +8,55 @@ class CartController extends BaseController {
     debugPrint("CartController Constructor");
   }
 
-  final RxList<ShopModel> _CartList = new List<ShopModel>.empty().obs;
+  final RxList<ShopModel> _cartList = new List<ShopModel>.empty().obs;
   double? subtotal;
 
   @override
   void onInit() {
     debugPrint("CartController onInit");
-    _CartList.value = Get.arguments;
-    debugPrint("CartController ${_CartList}");
+    _cartList.value = Get.arguments;
+    _cartList.value.removeWhere((model) => model.isCart != null && model.isCart == false);
+    debugPrint("CartController ${_cartList}");
     super.onInit();
   }
 
   //#region Cart Methods
-  String getCartImage(
-    int index,
-  ) {
-    return _CartList.where((model) => model.isCart == true)
+  String getCartImage(int index,) {
+    return _cartList.value
             .toList()[index]
-            .image ??
-        "Nil";
+            .image ?? "Nil";
   }
 
-  String getCartName(
-    int index,
-  ) {
-    return _CartList.where((model) => model.isCart == true)
+  String getCartName(int index,) {
+    return _cartList.value
             .toList()[index]
-            .name ??
-        "Nil";
+            .name ?? "Nil";
   }
 
-  String getCartPrice(
-    int index,
-  ) {
-    return "₱ ${_CartList.where((model) => model.isCart == true).toList()[index].price.toString() ?? "Nil"}";
+  String getCartPrice(int index,) {
+    return "₱ ${_cartList.value[index].price.toString() ?? "Nil"}";
   }
 
-  String getQuantity(
-    int index,
-  ) {
-    return _CartList.where((model) => model.isCart == true)
+  String getQuantity(int index,) {
+    return _cartList.value//.where((model) => model.isCart == true)
             .toList()[index]
             .quanity
-            .toString() ??
-        "0";
+            .toString() ?? "0";
   }
 
-  void incrementQuanity(
-    int index,
-  ) {
+  void incrementQuanity(int index,) {
     debugPrint("CartController increamentQuanity($index)");
-    //TODO: Increament by one at ShopModel quantity integer
-    final ShopModel _model = _CartList.where((model) => model.isCart == true).toList()[index];
+    final ShopModel _model = _cartList.value[index];
     _model.quanity = _model.quanity! + 1;
-    _CartList.where((model) => model.isCart == true).toList()[index] = _model;
+    _cartList[index] = _model;
   }
 
-  void decrementQuantity(
-    int index,
-  ) {
+  void decrementQuantity(int index,) {
     debugPrint("CartController decrementQuantity($index)");
-    //TODO: Decrement by one at ShopModel quantity integer
-    final ShopModel _model = _CartList.where((model) => model.isCart == true).toList()[index];
-
+    final ShopModel _model = _cartList.value[index];
     if (_model.quanity! > 0) {
       _model.quanity = _model.quanity! - 1;
-      _CartList.where((model) => model.isCart == true).toList()[index] = _model;
+      _cartList[index] = _model;
     } else {
       Get.snackbar('Error', 'Quantity cannot be less than 0',
           snackPosition: SnackPosition.BOTTOM);
@@ -84,7 +67,7 @@ class CartController extends BaseController {
     debugPrint("CartController getSubtotal()");
     //TODO: Add All Prices times Quantity
     subtotal = 0.00;
-    _CartList.forEach((model) {
+    _cartList.value.forEach((model) {
       debugPrint("CartController ${model.isCart}");
       if (model.isCart == true && model.quanity! > 0) {
         subtotal = subtotal! + (model.quanity! * model.price!);
@@ -95,10 +78,8 @@ class CartController extends BaseController {
   }
 
   int getCartLength() {
-    return _CartList.where((model) => model.isCart == true).toList().length ??
-        0;
+    return _cartList.value.length ?? 0;
   }
-
   //#endregion
   @override
   void onClose() {

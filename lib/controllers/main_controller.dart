@@ -1,12 +1,10 @@
 import 'dart:async';
-
 import 'package:cafeterianhs/models/shop_model.dart';
 import 'package:cafeterianhs/routes/app_pages.dart';
 import 'package:cafeterianhs/utils/app_bar_enum.dart';
 import 'package:cafeterianhs/utils/shop_category_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'base_controller.dart';
 
 class MainController extends BaseController
@@ -168,7 +166,7 @@ class MainController extends BaseController
   }
 
   void refreshList() { debugPrint("MainController refreshList()");
-  setBottomIndex(-1);
+    setBottomIndex(-1);
     final Timer _timer = Timer(const Duration(milliseconds : 750), (() {
       setBottomIndex(2);
     }));
@@ -287,7 +285,6 @@ class MainController extends BaseController
     debugPrint("MainController launchCart()");
     Get.toNamed(Routes.CART, arguments: _shopList);
   }
-
   //#endregion
   @override
   void onClose() {
