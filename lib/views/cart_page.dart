@@ -131,67 +131,69 @@ class CartPage extends BaseWidget<CartController> {
           )
         ],
       ),
-      bottomNavigationBar: Container(
-        height: 80,
-        padding: EdgeInsets.only(
-          top: 15,
-          bottom: 15,
-          left: 20,
-          right: 20,
-        ),
-        decoration: BoxDecoration(
-          color: Colors.grey[300],
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+      bottomNavigationBar: Obx(() {
+        return Container(
+          height: 80,
+          padding: EdgeInsets.only(
+            top: 15,
+            bottom: 15,
+            left: 20,
+            right: 20,
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Text(
-                  'Subtotal:',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  child: Text(
-                    controller.getSubtotal(),
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'Subtotal:',
                     style: TextStyle(
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                )
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.only(
-                top: 12,
-                bottom: 12,
-                right: 20,
-                left: 20,
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    child: Text(
+                      controller.getSubtotal().toString(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  )
+                ],
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.orange[300],
-              ),
-              child: Text(
-                'CHECKOUT',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
+              Container(
+                padding: EdgeInsets.only(
+                  top: 12,
+                  bottom: 12,
+                  right: 20,
+                  left: 20,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.orange[300],
+                ),
+                child: Text(
+                  'CHECKOUT',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

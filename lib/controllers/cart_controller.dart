@@ -59,7 +59,8 @@ class CartController extends BaseController {
   ) {
     debugPrint("CartController increamentQuanity($index)");
     //TODO: Increament by one at ShopModel quantity integer
-    final ShopModel _model = _CartList.where((model) => model.isCart == true).toList()[index];
+    final ShopModel _model =
+        _CartList.where((model) => model.isCart == true).toList()[index];
     _model.quanity = _model.quanity! + 1;
     _CartList.where((model) => model.isCart == true).toList()[index] = _model;
   }
@@ -69,7 +70,8 @@ class CartController extends BaseController {
   ) {
     debugPrint("CartController decrementQuantity($index)");
     //TODO: Decrement by one at ShopModel quantity integer
-    final ShopModel _model = _CartList.where((model) => model.isCart == true).toList()[index];
+    final ShopModel _model =
+        _CartList.where((model) => model.isCart == true).toList()[index];
 
     if (_model.quanity! > 0) {
       _model.quanity = _model.quanity! - 1;
@@ -86,9 +88,7 @@ class CartController extends BaseController {
     subtotal = 0.00;
     _CartList.forEach((model) {
       debugPrint("CartController ${model.isCart}");
-      if (model.isCart == true && model.quanity! > 0) {
-        subtotal = subtotal! + (model.quanity! * model.price!);
-      }
+      subtotal = subtotal! + model.quanity! * model.price!;
     });
 
     return '0';
