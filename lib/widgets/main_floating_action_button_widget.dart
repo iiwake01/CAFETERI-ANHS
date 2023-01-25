@@ -6,16 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MainFloatingActionButtonWidget extends BaseWidget<MainController> {
-  
   const MainFloatingActionButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-        if (controller.getBottomIndex() == BottomBarEnum.shop.code || controller.getBottomIndex() == BottomBarEnum.likes.code) 
-          return const FloatingActionButtonWidget(); 
-        else 
-          return const Opacity(opacity: 0);
-      });
+      if (controller.getBottomIndex() == BottomBarEnum.shop.code ||
+          controller.getBottomIndex() == BottomBarEnum.likes.code)
+        return const FloatingActionButtonWidget();
+      else
+        return const Opacity(opacity: 0);
+    });
   }
 }
