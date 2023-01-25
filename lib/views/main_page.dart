@@ -2,10 +2,9 @@ import 'package:cafeterianhs/controllers/main_controller.dart';
 import 'package:cafeterianhs/views/base_view.dart';
 import 'package:cafeterianhs/widgets/main_appbar_widget.dart';
 import 'package:cafeterianhs/widgets/bottom_navigation_bar_widget.dart';
-import 'package:cafeterianhs/widgets/floating_action_button_widget.dart';
-import 'package:cafeterianhs/widgets/main_widget.dart';
+import 'package:cafeterianhs/widgets/main_floating_action_button_widget.dart';
+import 'package:cafeterianhs/widgets/main_body_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 class MainPage extends BaseView<MainController> {
   
@@ -14,15 +13,11 @@ class MainPage extends BaseView<MainController> {
   @override
   Widget build(BuildContext context) {
     debugPrint("MainPage build");
-    return Scaffold(
-      appBar: const MainAppbarWidget(),
-      floatingActionButton: Obx(() {
-        if (controller.getBottomIndex() == 1 || controller.getBottomIndex() == 2) {
-          return const FloatingActionButtonWidget();
-        } else return const Opacity(opacity: 0);
-      }),
-      body: const MainWidget(),
-      bottomNavigationBar: const BottomNavigationBarWidget(),
+    return const Scaffold(
+      appBar: MainAppbarWidget(),
+      floatingActionButton: MainFloatingActionButtonWidget(),
+      body: MainBodyWidget(),
+      bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
 }

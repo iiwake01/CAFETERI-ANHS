@@ -1,11 +1,10 @@
-// ignore_for_file: invalid_use_of_protected_member
-
 import 'package:cafeterianhs/models/shop_model.dart';
 import 'package:flutter/material.dart';
 import 'base_controller.dart';
 import 'package:get/get.dart';
 
 class CartController extends BaseController {
+
   CartController() {
     debugPrint("CartController Constructor");
   }
@@ -16,58 +15,45 @@ class CartController extends BaseController {
   @override
   void onInit() {
     debugPrint("CartController onInit");
-    _cartList.value = Get.arguments;
-    _cartList.value
-        .removeWhere((model) => model.isCart != null && model.isCart == false);
-    debugPrint("CartController ${_cartList}");
+    _cartList.value = Get.arguments.where( (model) => model.isCart != null && model.isCart == true).toList();
+    //_cartList.value.removeWhere((model) => model.isCart != null && model.isCart == false);
+    debugPrint("CartController ${_cartList.value}");
     super.onInit();
   }
-
   //#region Cart Methods
-  String getCartImage(
-    int index,
-  ) {
+  String getCartImage(int index,) {
     return _cartList.value.toList()[index].image ?? "Nil";
   }
 
-  String getCartName(
-    int index,
-  ) {
+  String getCartName(int index,) {
     return _cartList.value.toList()[index].name ?? "Nil";
   }
 
-  String getCartPrice(
-    int index,
-  ) {
+  String getCartPrice(int index,) {
     return "₱ ${_cartList.value[index].price.toString() ?? "Nil"}";
   }
 
-  String getQuantity(
-    int index,
-  ) {
+  String getQuantity(int index,) {
     return _cartList.value.toList()[index].quanity.toString() ?? "0";
   }
 
-  void incrementQuanity(
-    int index,
-  ) {
+  void incrementQuanity(int index,) {
     debugPrint("CartController increamentQuanity($index)");
     final ShopModel _model = _cartList.value[index];
     _model.quanity = _model.quanity! + 1;
     _cartList[index] = _model;
   }
 
-  void decrementQuantity(
-    int index,
-  ) {
+  void decrementQuantity(int index,) {
     debugPrint("CartController decrementQuantity($index)");
     final ShopModel _model = _cartList.value[index];
     if (_model.quanity! > 0) {
       _model.quanity = _model.quanity! - 1;
       _cartList[index] = _model;
     } else {
-      Get.snackbar('Error', 'Quantity cannot be less than 0',
-          snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar(
+        'Error', 'Quantity cannot be less than 0', snackPosition: SnackPosition.BOTTOM
+      );
     }
   }
 
@@ -89,7 +75,6 @@ class CartController extends BaseController {
   int getCartLength() {
     return _cartList.value.length ?? 0;
   }
-
   //#endregion
   @override
   void onClose() {

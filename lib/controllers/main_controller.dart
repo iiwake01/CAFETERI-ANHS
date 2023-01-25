@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:cafeterianhs/models/shop_model.dart';
 import 'package:cafeterianhs/routes/app_pages.dart';
 import 'package:cafeterianhs/utils/app_bar_enum.dart';
+import 'package:cafeterianhs/utils/bottom_bar_enum.dart';
 import 'package:cafeterianhs/utils/shop_category_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,7 @@ class MainController extends BaseController
       _currentBottomIndex(1);
     });
   }
-
+  //region App Bar Methods
   void setAppBarEnum(int index) {
     debugPrint("MainController setAppBarEnum(${index})");
     if (index == 0)
@@ -52,7 +53,8 @@ class MainController extends BaseController
     debugPrint("MainController getAppBarEnum(${_appbar.value})");
     return _appbar.value;
   }
-
+  //endregion
+  //region Tab Bar Methods
   TabController getTabController() {
     debugPrint("MainController getTabController($_tabController)");
     return _tabController;
@@ -62,7 +64,8 @@ class MainController extends BaseController
     debugPrint("MainController setTabIndex($index)");
     if (index == 1) _tabController.index = 0;
   }
-
+  //endregion
+  //region Bottom Bar Methods
   void setBottomIndex(int index) {
     debugPrint("MainController setBottomIndex($index)");
     _currentBottomIndex(index);
@@ -72,7 +75,7 @@ class MainController extends BaseController
     debugPrint("MainController getBottomIndex(${_currentBottomIndex.value})");
     return _currentBottomIndex.value;
   }
-
+  //endregion
   void _setShopList() {
     _shopList.value = <ShopModel>[];
     _shopList.add(ShopModel(
@@ -159,12 +162,11 @@ class MainController extends BaseController
 
   void refreshList() {
     debugPrint("MainController refreshList()");
-    setBottomIndex(-1);
+    setBottomIndex(BottomBarEnum.none.code);
     final Timer _timer = Timer(const Duration(milliseconds: 500), (() {
-      setBottomIndex(2);
+      setBottomIndex(BottomBarEnum.likes.code);
     }));
   }
-
   //#region Shop Methods
   String getShopImage(int index, ShopCategoryEnum category) {
     return _shopList.value
@@ -203,9 +205,7 @@ class MainController extends BaseController
   }
   //#endregion
   //#region Likes Methods
-  void setUnLike(
-    int index,
-  ) {
+  void setUnLike(int index,) {
     debugPrint("MainController setUnLike($index,)");
     final ShopModel _model =
         _shopList.value.where((model) => model.isLikes == true).toList()[index];
@@ -234,16 +234,14 @@ class MainController extends BaseController
     return _shopList.value
             .where((model) => model.isLikes == true)
             .toList()[index]
-            .image ??
-        "Nil";
+            .image ?? "Nil";
   }
 
   String getLikesName(int index) {
     return _shopList.value
             .where((model) => model.isLikes == true)
             .toList()[index]
-            .name ??
-        "Nil";
+            .name ??  "Nil";
   }
 
   String getLikesPrice(int index) {
@@ -251,16 +249,14 @@ class MainController extends BaseController
             .where((model) => model.isLikes == true)
             .toList()[index]
             .price
-            .toString() ??
-        "Nil";
+            .toString() ??  "Nil";
   }
 
   int getLikesLength() {
     return _shopList.value
             .where((model) => model.isLikes == true)
             .toList()
-            .length ??
-        0;
+            .length ??  0;
   }
 
   //#endregion
